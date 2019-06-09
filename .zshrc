@@ -275,3 +275,10 @@ source /home/tianyi/catkin_ws/devel/setup.zsh
 if [[ -z "$TMUX" ]] && [ "$SSH_CONNECTION" != "" ]; then
     tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux
 fi
+
+
+alias tname="tmux display-message -p '#S'"
+
+function tkill(){
+	tmux kill-session -t $1
+}
