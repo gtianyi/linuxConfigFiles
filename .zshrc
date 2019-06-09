@@ -228,10 +228,6 @@ function mylatexslides(){
     ps2pdf $1.ps
 }
 
-#function gcam(){
-    #git commit -am "$1"
-#}
-#
 function gcamp(){
     git commit -am "$1" && ggp
 }
@@ -241,16 +237,16 @@ function dos2unix(){
 	sed -i -e 's/\r$//' $1 
 }
 
-#function backupoverleaf(){
-    #unzip ~/Downloads/\[AAAI-20\]\ data-driven\ Nancy.zip -d ~/Downloads/temp
-	#mv ~/Downloads/temp/main.tex ~/phd/research/workingPaper/drafts/nancydd/
-	#rm -rf ~/Downloads/temp
-	#rm -rf ~/Downloads/\[AAAI-20\]\ data-driven\ Nancy.zip
-	#cd ~/phd/research/workingPaper/drafts/nancydd/
-	#gcam "[update from overleaf] $1"
-	#git push
-	#cd -
-#}
+function backupoverleaf(){
+	unzip ~/Downloads/\[AAAI-20\]\ data-driven\ Nancy.zip -d ~/Downloads/temp
+	mv ~/Downloads/temp/main.tex ~/phd/research/workingPaper/drafts/nancydd/
+	rm -rf ~/Downloads/temp
+	rm -rf ~/Downloads/\[AAAI-20\]\ data-driven\ Nancy.zip
+	cd ~/phd/research/workingPaper/drafts/nancydd/
+	gcam "[update from overleaf] $1"
+	git push
+	cd -
+}
 
 function backupshr(){
 	mv ~/Downloads/Smart_Home_Robot_Project_plan.txt ~/catkin_ws/src/doc
@@ -275,3 +271,7 @@ alias f="nautilus | pwd"
 bindkey -v
 #source /opt/ros/kinetic/setup.zsh
 source /home/tianyi/catkin_ws/devel/setup.zsh
+
+if [[ -z "$TMUX" ]] && [ "$SSH_CONNECTION" != "" ]; then
+    tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux
+fi
