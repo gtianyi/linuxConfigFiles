@@ -49,6 +49,7 @@ syntax enable
 "colorscheme solarized
 
 " Add hook for clang-format
+" have to sudo apt install clang-format before use
 map <leader>f :py3f ~/.config/nvim/plugged/clang-format.py<cr>
 imap <leader>f <c-o>:py3f ~/.config/nvim/plugged/clang-format.py<cr>
 
