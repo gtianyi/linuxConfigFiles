@@ -8,7 +8,7 @@
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="juanghurtado"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -178,6 +178,8 @@ alias sshbyodoin="ssh -p 31415 gu@byodoin.cs.unh.edu"
 alias sshaerials="ssh -p 31415 gu@aerials.cs.unh.edu"
 alias sshkraken="ssh -p 31415 gu@kraken.cs.unh.edu"
 alias sshcorona="ssh -p 31415 gu@corona.cs.unh.edu"
+#alias sshpioneerkings="ssh tianyi@192.168.1.4"
+alias sshpioneerkings="ssh tianyi@10.21.127.85"
 
 #source /home/aifs1/gu/phd/pioneer-hallway/devel/setup.bash
 #source /opt/ros/kinetic/setup.bash
@@ -281,4 +283,12 @@ alias tname="tmux display-message -p '#S'"
 
 function tkill(){
 	tmux kill-session -t $1
+}
+
+export ROS_WORKSPACE=/home/tianyi/catkin_ws
+
+alias rosmakeshr="catkin_make -DCATKIN_WHITELIST_PACKAGES='pioneer_shr'"
+
+function rosmakepkg(){
+	catkin_make -DCATKIN_WHITELIST_PACKAGES="$1"
 }
