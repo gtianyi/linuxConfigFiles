@@ -267,7 +267,10 @@ function myrm(){
 alias cleartrash="/bin/rm -rf ~/.trash/* ~/.trash/.[!.]*"
 
 # open the file manager from terminal
-alias f="nautilus '$(pwd)'"
+function f(){
+    CURDIR="$(pwd)"
+	nautilus $CURDIR
+}
 
 bindkey -v
 #source /opt/ros/kinetic/setup.zsh
