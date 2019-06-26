@@ -178,8 +178,7 @@ alias sshbyodoin="ssh -p 31415 gu@byodoin.cs.unh.edu"
 alias sshaerials="ssh -p 31415 gu@aerials.cs.unh.edu"
 alias sshkraken="ssh -p 31415 gu@kraken.cs.unh.edu"
 alias sshcorona="ssh -p 31415 gu@corona.cs.unh.edu"
-#alias sshpioneerkings="ssh tianyi@192.168.1.4"
-alias sshpioneerkings="ssh tianyi@10.21.127.85"
+alias sshpioneerkings="ssh tianyi@192.168.1.4"
 
 #source /home/aifs1/gu/phd/pioneer-hallway/devel/setup.bash
 #source /opt/ros/kinetic/setup.bash
@@ -268,7 +267,7 @@ function myrm(){
 alias cleartrash="/bin/rm -rf ~/.trash/* ~/.trash/.[!.]*"
 
 # open the file manager from terminal
-alias f="nautilus | pwd"
+alias f="nautilus '$(pwd)'"
 
 bindkey -v
 #source /opt/ros/kinetic/setup.zsh
