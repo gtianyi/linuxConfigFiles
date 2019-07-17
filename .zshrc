@@ -238,13 +238,24 @@ function dos2unix(){
 	sed -i -e 's/\r$//' $1 
 }
 
-function backupoverleaf(){
+function backupoverleaf-nancy(){
 	unzip ~/Downloads/\[AAAI-20\]\ data-driven\ Nancy.zip -d ~/Downloads/temp
 	mv ~/Downloads/temp/main.tex ~/phd/research/workingPaper/drafts/nancydd/
 	rm -rf ~/Downloads/temp
 	rm -rf ~/Downloads/\[AAAI-20\]\ data-driven\ Nancy.zip
 	cd ~/phd/research/workingPaper/drafts/nancydd/
-	gcam "[update from overleaf] $1"
+	gcam "[update from overleaf]--[nancy] $1"
+	git push
+	cd -
+}
+
+function backupoverleaf-shr(){
+	unzip ~/Downloads/\[HRI-20\]\ Smart\ Home\ Robot.zip -d ~/Downloads/temp
+	mv ~/Downloads/temp/main.tex ~/tianyi/drafts/shr/
+	rm -rf ~/Downloads/temp
+	rm -rf ~/Downloads/\[HRI-20\]\ Smart\ Home\ Robot.zip
+	cd ~/tianyi/drafts/shr/
+	gcam "[update from overleaf]--[shr] $1"
 	git push
 	cd -
 }
@@ -289,8 +300,11 @@ function tkill(){
 
 export ROS_WORKSPACE=/home/tianyi/catkin_ws
 
-alias rosmakeshr="catkin_make -DCATKIN_WHITELIST_PACKAGES='pioneer_shr'"
+function rosbuildpkgdebug(){
+	catkin build -DCMAKE_BUILD_TYPE=Debug $1 
+}
 
-function rosmakepkg(){
-	catkin_make -DCATKIN_WHITELIST_PACKAGES="$1"
+switch2s108(){
+    export ROS_MASTER_URI=http://192.168.1.4:11311
+	export ROS_HOSTNAME=192.168.1.16
 }

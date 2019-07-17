@@ -60,7 +60,7 @@ default_flags = [
     '-Wall',
     '-Wextra',
     '-Werror',
-    '-Wc++98-compat',
+    # '-Wc++98-compat',
     '-Wno-long-long',
     '-Wno-variadic-macros',
     '-fexceptions',
@@ -107,7 +107,9 @@ def GetCompilationDatabaseFolder(filename):
         return ''
     dir = (os.path.expandvars('$ROS_WORKSPACE') +
            os.path.sep +
-           'build')
+           'build' +
+           os.path.sep +
+           pkg_name)
 
     return dir
 
