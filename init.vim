@@ -9,7 +9,7 @@ set nobackup
 set noswapfile
 
 "separator word with _
-set iskeyword-=_
+"set iskeyword-=_
 
 " all plugin listed here would be installed automatically
 call plug#begin()
@@ -25,6 +25,9 @@ Plug 'tpope/vim-abolish' "subtitute preserve case
 Plug 'scrooloose/nerdcommenter' 
 Plug 'mattn/emmet-vim' 
 Plug 'sbdchd/neoformat'
+Plug 'neomake/neomake'
+Plug 'tmhedberg/SimpylFold'
+Plug 'terryma/vim-multiple-cursors'
 call plug#end()            
 
 " don't ask for ycm confirmation
@@ -54,8 +57,13 @@ syntax enable
 " have to sudo apt install clang-format before use
 map <leader>f :py3f ~/.config/nvim/plugged/clang-format.py<cr>
 imap <leader>f <c-o>:py3f ~/.config/nvim/plugged/clang-format.py<cr>
+
+" Add hook for python formatter
 autocmd FileType python map <leader>f :Neoformat<cr>
 
+" Add python code checker config
+let g:neomake_python_enabled_makers = ['pylint']
+autocmd FileType python call neomake#configure#automake('nrwi', 500)
 
 " Add hook for clang-rename 
 map <leader>r :pyf ~/.config/nvim/plugged/clang-rename.py<cr>
