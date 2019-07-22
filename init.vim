@@ -24,6 +24,7 @@ Plug 'lervag/vimtex'
 Plug 'tpope/vim-abolish' "subtitute preserve case
 Plug 'scrooloose/nerdcommenter' 
 Plug 'mattn/emmet-vim' 
+Plug 'sbdchd/neoformat'
 call plug#end()            
 
 " don't ask for ycm confirmation
@@ -53,6 +54,8 @@ syntax enable
 " have to sudo apt install clang-format before use
 map <leader>f :py3f ~/.config/nvim/plugged/clang-format.py<cr>
 imap <leader>f <c-o>:py3f ~/.config/nvim/plugged/clang-format.py<cr>
+autocmd FileType python map <leader>f :Neoformat<cr>
+
 
 " Add hook for clang-rename 
 map <leader>r :pyf ~/.config/nvim/plugged/clang-rename.py<cr>
