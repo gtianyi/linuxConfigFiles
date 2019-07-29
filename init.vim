@@ -1,6 +1,6 @@
 " change the leader key from "\" to ";"
 let mapleader=";"
-" change the local leader key from "\" to ";"
+"change the local leader key from "\" to ";"
 let maplocalleader=";"
 
 "UI config
@@ -28,6 +28,8 @@ Plug 'sbdchd/neoformat'
 Plug 'neomake/neomake'
 Plug 'tmhedberg/SimpylFold'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'sheerun/vim-polyglot'
+Plug 'trevordmiller/nova-vim'
 call plug#end()            
 
 " don't ask for ycm confirmation
@@ -41,7 +43,6 @@ nnoremap <leader>b :lprevious<CR>
 " other ycm settings which are used for test
 "let g:ycm_server_keep_logfiles = 1
 "let g:ycm_server_log_level = 'debug'
-
 "search setting
 set incsearch 
 set nohlsearch
@@ -50,8 +51,11 @@ set smartcase
 
 " color
 syntax enable
-"set background=light
+"set termguicolors
+"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+"set background=dark
 "colorscheme solarized
+colorscheme nova
 
 " Add hook for clang-format
 " have to sudo apt install clang-format before use
