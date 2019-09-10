@@ -107,7 +107,8 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 #more aliases
-alias csshai15="cssh ai1 ai2 ai3 ai4 ai5 ai6 ai7 ai8 ai9 ai10 ai11 ai12 ai13 ai14 ai15"
+alias csshai18="cssh -K 30 ai1 ai2 ai3 ai4 ai5 ai6 ai8 ai9 ai10 ai11 ai12 ai13 ai14 ai15 ais1 ais2 ais3 ais4"
+alias csshai14="cssh -K 30 ai1 ai2 ai3 ai4 ai5 ai6 ai8 ai9 ai10 ai11 ai12 ai13 ai14 ai15"
 #open file using nvim
 openFileInBack(){
 	if [[ ( ${1: -4} = ".pdf") || ( ${1: -4} = ".eps" ) ]]
@@ -183,7 +184,7 @@ alias sshkatsura="ssh gu@katsura.cs.unh.edu"
 alias sshbyodoin="ssh -p 31415 gu@byodoin.cs.unh.edu"
 alias sshaerials="ssh -p 31415 gu@aerials.cs.unh.edu"
 alias sshkraken="ssh -p 31415 gu@kraken.cs.unh.edu"
-alias sshcorona="ssh -p 31415 gu@corona.cs.unh.edu"
+alias sshcarl03="ssh -p 31415 tianyi@carl03.cs.unh.edu"
 
 #source /home/aifs1/gu/phd/pioneer-hallway/devel/setup.bash
 #source /opt/ros/kinetic/setup.bash
@@ -196,7 +197,7 @@ findhere(){
 
 alias vpnwhitecliff="sudo openvpn --config ~/.clientconfig.ovpn"
 
-#eval `dircolors /home/aifs1/gu/.dir_colors/dircolors`
+eval `dircolors /home/aifs1/gu/.dir_colors/dircolors`
 
 alias updatecv="cp /home/aifs1/gu/phd/jobHunt/cv/TianyiGu_CV.pdf /home/aifs1/gu/phd/jobHunt/public_html/ && scp -r /home/aifs1/gu/phd/jobHunt/public_html tg1034@agate.cs.unh.edu:~/"
 
@@ -252,7 +253,7 @@ backupoverleaf(){
 	cd -
 }
 
-#alias rm='echo -e "rm is disabled, use myrm or /bin/rm instead.\nuse cleartrash to clear the trash folder"'
+alias rm='echo -e "rm is disabled, use myrm or /bin/rm instead.\nuse cleartrash to clear the trash folder"'
 
 myrm(){
     mv $@ ~/.trash
@@ -265,5 +266,17 @@ alias f="thunar | pwd"
 
 set -o vi
 
-#export SHELL='which zsh'
-#exec /usr/bin/zsh -l
+alias killvnc="x11vnc -R stop"
+
+#if [[ -z "$TMUX"  ]] && [ "$SSH_CONNECTION" != ""  ]; then
+     #tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux 
+#fi
+
+myeps2pdf(){
+    ps-montage -across 3 -down 5 *.eps out.ps
+    ps2pdf out.ps
+}
+
+cid(){
+	ps aux | grep -i $1
+}

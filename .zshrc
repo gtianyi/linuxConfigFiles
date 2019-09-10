@@ -2,7 +2,8 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/tianyi/.oh-my-zsh"
+  #export ZSH="/home/tianyi/.oh-my-zsh"
+  export ZSH="/home/aifs1/gu/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -101,15 +102,22 @@ source $ZSH/oh-my-zsh.sh
 #
 #copy from bashrc
 #more aliases
-alias csshai15="cssh ai1 ai2 ai3 ai4 ai5 ai6 ai7 ai8 ai9 ai10 ai11 ai12 ai13 ai14 ai15"
+alias csshai18="cssh ai1 ai2 ai3 ai4 ai5 ai6 ai8 ai9 ai10 ai11 ai12 ai13 ai14 ai15 ais1 ais2 ais3 ais4"
+alias csshai14="cssh ai1 ai2 ai3 ai4 ai5 ai6 ai8 ai9 ai10 ai11 ai12 ai13 ai14 ai15"
 #open file using nvim
 function openFileInBack(){
 	if [[ ( ${1: -4} = ".pdf") || ( ${1: -4} = ".eps" ) ]]
 	then
 	okular $1 &
-	elif [[ ( ${1: -4} = ".png" )  || ( ${1: -4} = ".jpg" ) || ( ${1: -4} = ".jpeg" ) ]]
+	elif [[ ( ${1: -4} = ".png" ) || ( ${1: -4} = ".jpg" ) || ( ${1: -5} = ".jpeg" ) ]]
 	then
 	eog $1 &
+	elif [[ ( ${1: -4} = ".txt" ) || ( ${1: -3} = ".st" ) || ( ${1: -4} = ".bak" ) ]]
+	then
+	less -N $1
+    elif [[ ( ${1: -5} = ".json" )]]
+	then
+    jq -C . $1 | less -r
     else
 	nvim $1 
     fi
@@ -178,7 +186,8 @@ alias sshbyodoin="ssh -p 31415 gu@byodoin.cs.unh.edu"
 alias sshaerials="ssh -p 31415 gu@aerials.cs.unh.edu"
 alias sshkraken="ssh -p 31415 gu@kraken.cs.unh.edu"
 alias sshcorona="ssh -p 31415 gu@corona.cs.unh.edu"
-alias sshpioneerkings="ssh tianyi@192.168.1.4"
+#alias sshpioneerkings="ssh tianyi@192.168.1.4"
+alias sshpioneerkings="ssh tianyi@10.21.127.85"
 
 #source /home/aifs1/gu/phd/pioneer-hallway/devel/setup.bash
 #source /opt/ros/kinetic/setup.bash
@@ -204,13 +213,14 @@ alias cdandrewnancy="cd /home/aifs1/gu/phd/research/workingPaper/realtime-nancy/
 alias cdbayesian="cd /home/aifs1/gu/phd/2018fall/cs998IndependentStudyWithMarek/bayesian_exploration"
 alias cdmetronome="cd /home/aifs1/gu/phd/research/codeBase/metronome"
 alias cdshr="cd /home/tianyi/catkin_ws/src"
+alias cdcv="cd /home/aifs1/gu/phd/jobHunt/public_html/"
 
 function t(){
     tmux a -t $1
 }
 
 alias takeover="tmux detach -a"
-export TERM=screen-256color
+export TERM=xterm-256color
 
 alias ls="ls -a --color=auto"
 
@@ -238,24 +248,13 @@ function dos2unix(){
 	sed -i -e 's/\r$//' $1 
 }
 
-function backupoverleaf-nancy(){
+function backupnancy(){
 	unzip ~/Downloads/\[AAAI-20\]\ data-driven\ Nancy.zip -d ~/Downloads/temp
 	mv ~/Downloads/temp/main.tex ~/phd/research/workingPaper/drafts/nancydd/
 	rm -rf ~/Downloads/temp
 	rm -rf ~/Downloads/\[AAAI-20\]\ data-driven\ Nancy.zip
 	cd ~/phd/research/workingPaper/drafts/nancydd/
-	gcam "[update from overleaf]--[nancy] $1"
-	git push
-	cd -
-}
-
-function backupoverleaf-shr(){
-	unzip ~/Downloads/\[HRI-20\]\ Smart\ Home\ Robot.zip -d ~/Downloads/temp
-	mv ~/Downloads/temp/main.tex ~/tianyi/drafts/shr/
-	rm -rf ~/Downloads/temp
-	rm -rf ~/Downloads/\[HRI-20\]\ Smart\ Home\ Robot.zip
-	cd ~/tianyi/drafts/shr/
-	gcam "[update from overleaf]--[shr] $1"
+	gcam "[update from overleaf] $1"
 	git push
 	cd -
 }
@@ -278,14 +277,11 @@ function myrm(){
 alias cleartrash="/bin/rm -rf ~/.trash/* ~/.trash/.[!.]*"
 
 # open the file manager from terminal
-function f(){
-    CURDIR="$(pwd)"
-	nautilus $CURDIR
-}
+alias f="nautilus | pwd"
 
 bindkey -v
 #source /opt/ros/kinetic/setup.zsh
-source /home/tianyi/catkin_ws/devel/setup.zsh
+#source /home/tianyi/catkin_ws/devel/setup.zsh
 
 if [[ -z "$TMUX" ]] && [ "$SSH_CONNECTION" != "" ]; then
     tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux
@@ -298,13 +294,24 @@ function tkill(){
 	tmux kill-session -t $1
 }
 
-export ROS_WORKSPACE=/home/tianyi/catkin_ws
+#export ROS_WORKSPACE=/home/tianyi/catkin_ws
 
-function rosbuildpkgdebug(){
-	catkin build -DCMAKE_BUILD_TYPE=Debug $1 
+alias rosmakeshr="catkin_make -DCATKIN_WHITELIST_PACKAGES='pioneer_shr'"
+
+function rosmakepkg(){
+	catkin_make -DCATKIN_WHITELIST_PACKAGES="$1"
 }
 
-switch2s108(){
-    export ROS_MASTER_URI=http://192.168.1.4:11311
-	export ROS_HOSTNAME=192.168.1.16
+alias x=exit
+
+export DISPLAY=:0
+
+function llc(){
+	num=$(ll $1 | wc -l)
+	echo $(($num -3))
 }
+
+function cid(){
+	ps aux | grep -i $1
+}
+
