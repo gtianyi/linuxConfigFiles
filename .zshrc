@@ -324,7 +324,6 @@ echo $(($num -3))
 # check process id by partial application name
 function cid(){
 ps aux | grep -i $1
-ps aux | grep -i $1
 }
 
 alias diff="colordiff -y"
