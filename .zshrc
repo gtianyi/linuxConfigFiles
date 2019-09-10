@@ -2,9 +2,8 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-#export ZSH="/home/tianyi/.oh-my-zsh"
 #this should be change according to machine
-export ZSH="/home/aifs1/gu/.oh-my-zsh"
+export ZSH="/home/tianyi/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -41,7 +40,7 @@ ZSH_THEME="juanghurtado"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
- DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -107,21 +106,21 @@ alias csshai18="cssh ai1 ai2 ai3 ai4 ai5 ai6 ai8 ai9 ai10 ai11 ai12 ai13 ai14 ai
 alias csshai14="cssh ai1 ai2 ai3 ai4 ai5 ai6 ai8 ai9 ai10 ai11 ai12 ai13 ai14 ai15"
 #open file using nvim
 function openFileInBack(){
-	if [[ ( ${1: -4} = ".pdf") || ( ${1: -4} = ".eps" ) ]]
-	then
-	okular $1 &
-	elif [[ ( ${1: -4} = ".png" ) || ( ${1: -4} = ".jpg" ) || ( ${1: -5} = ".jpeg" ) ]]
-	then
-	eog $1 &
-	elif [[ ( ${1: -4} = ".txt" ) || ( ${1: -3} = ".st" ) || ( ${1: -4} = ".bak" ) ]]
-	then
-	less -N $1
-    elif [[ ( ${1: -5} = ".json" )]]
-	then
-    jq -C . $1 | less -r
-    else
-	nvim $1 
-    fi
+if [[ ( ${1: -4} = ".pdf") || ( ${1: -4} = ".eps" ) ]]
+then
+okular $1 &
+elif [[ ( ${1: -4} = ".png" ) || ( ${1: -4} = ".jpg" ) || ( ${1: -5} = ".jpeg" ) ]]
+then
+eog $1 &
+elif [[ ( ${1: -4} = ".txt" ) || ( ${1: -3} = ".st" ) || ( ${1: -4} = ".bak" ) ]]
+then
+less -N $1
+elif [[ ( ${1: -5} = ".json" )]]
+then
+jq -C . $1 | less -r
+else
+nvim $1 
+fi
 }
 alias o=openFileInBack
 
@@ -147,32 +146,32 @@ export EIGEN3_INCLUDE_DIR=/usr/include/eigen3
 
 #pinter
 function p(){
-    lp -o sides=two-sided-long-edge $1
+lp -o sides=two-sided-long-edge $1
 }
 
 function pall(){
-    for file in $1/*
-	do
-      lp -o sides=two-sided-long-edge $file
-    done
+for file in $1/*
+do
+lp -o sides=two-sided-long-edge $file
+done
 }
 
 function pb(){
-    lp -d hpw240 -o sides=two-sided-long-edge $1
+lp -d hpw240 -o sides=two-sided-long-edge $1
 }
 
 alias startvnc="x11vnc -repeat -usepw -timeout 20 -quiet -display :0"
 
 function scpforestpark(){
-    scp $1 guty@132.177.219.140:~/Downloads/
+scp $1 guty@132.177.219.140:~/Downloads/
 }
 
 function scpagatefile(){
-    scp $1 tg1034@agate.cs.unh.edu:~/t
+scp $1 tg1034@agate.cs.unh.edu:~/t
 }
 
 function scpagatedir(){
-    scp -r $1 tg1034@agate.cs.unh.edu:~/t
+scp -r $1 tg1034@agate.cs.unh.edu:~/t
 }
 
 alias sshagate="ssh tg1034@agate.cs.unh.edu"
@@ -187,8 +186,7 @@ alias sshbyodoin="ssh -p 31415 gu@byodoin.cs.unh.edu"
 alias sshaerials="ssh -p 31415 gu@aerials.cs.unh.edu"
 alias sshkraken="ssh -p 31415 gu@kraken.cs.unh.edu"
 alias sshcorona="ssh -p 31415 gu@corona.cs.unh.edu"
-#alias sshpioneerkings="ssh tianyi@192.168.1.4"
-alias sshpioneerkings="ssh tianyi@10.21.127.85"
+alias sshpioneerkings="ssh tianyi@192.168.1.4"
 
 #source /home/aifs1/gu/phd/pioneer-hallway/devel/setup.bash
 #source /opt/ros/kinetic/setup.bash
@@ -196,7 +194,7 @@ alias sshpioneerkings="ssh tianyi@10.21.127.85"
 alias checkupdate="/usr/lib/update-notifier/apt-check --human-readable"
 
 function findhere(){
-    find ./ -name "*" | xargs grep "$1"
+find ./ -name "*" | xargs grep "$1"
 }
 
 alias vpnwhitecliff="sudo openvpn --config ~/.clientconfig.ovpn"
@@ -217,7 +215,7 @@ alias cdshr="cd /home/tianyi/catkin_ws/src"
 alias cdcv="cd /home/aifs1/gu/phd/jobHunt/public_html/"
 
 function t(){
-    tmux a -t $1
+tmux a -t $1
 }
 
 alias takeover="tmux detach -a"
@@ -226,94 +224,105 @@ export TERM=xterm-256color
 alias ls="ls -a --color=auto"
 
 function mylatex(){
-    latex $1
-	bibtex $1
-	latex $1
-	latex $1
-    dvips $1.dvi
-    ps2pdf $1.ps
+latex $1
+bibtex $1
+latex $1
+latex $1
+dvips $1.dvi
+ps2pdf $1.ps
 }
 
 function mylatexslides(){
-	latex $1
-    dvips $1.dvi
-    ps2pdf $1.ps
+latex $1
+dvips $1.dvi
+ps2pdf $1.ps
 }
 
 function gcamp(){
-    git commit -am "$1" && ggp
+git commit -am "$1" && ggp
 }
 
 
 function dos2unix(){
-	sed -i -e 's/\r$//' $1 
+sed -i -e 's/\r$//' $1 
 }
 
 function backupnancy(){
-	unzip ~/Downloads/\[AAAI-20\]\ data-driven\ Nancy.zip -d ~/Downloads/temp
-	mv ~/Downloads/temp/main.tex ~/phd/research/workingPaper/drafts/nancydd/
-	rm -rf ~/Downloads/temp
-	rm -rf ~/Downloads/\[AAAI-20\]\ data-driven\ Nancy.zip
-	cd ~/phd/research/workingPaper/drafts/nancydd/
-	gcam "[update from overleaf] $1"
-	git push
-	cd -
+unzip ~/Downloads/\[AAAI-20\]\ data-driven\ Nancy.zip -d ~/Downloads/temp
+mv ~/Downloads/temp/main.tex ~/phd/research/workingPaper/drafts/nancydd/
+rm -rf ~/Downloads/temp
+rm -rf ~/Downloads/\[AAAI-20\]\ data-driven\ Nancy.zip
+cd ~/phd/research/workingPaper/drafts/nancydd/
+gcam "[update from overleaf]--[nancy] $1"
+git push
+cd -
 }
 
 function backupshr(){
-	mv ~/Downloads/Smart_Home_Robot_Project_plan.txt ~/catkin_ws/src/doc
-	cd ~/catkin_ws/src
-	gcam "[update from google doc] $1"
-	git push
-	cd -
+unzip ~/Downloads/\[HRI-20\]\ Smart\ Home\ Robot.zip -d ~/Downloads/temp
+mv ~/Downloads/temp/main.tex ~/tianyi/drafts/shr/
+rm -rf ~/Downloads/temp
+rm -rf ~/Downloads/\[HRI-20\]\ Smart\ Home\ Robot.zip
+cd ~/tianyi/drafts/shr/
+gcam "[update from overleaf]--[shr] $1"
+gcam "[update from overleaf] $1"
+git push
+cd -
 }
-
 
 #alias rm='echo -e "rm is disabled, use myrm or /bin/rm instead.\nuse cleartrash to clear the trash folder"'
 
 function myrm(){
-    mv $@ ~/.trash
+mv $@ ~/.trash
 }
 
 alias cleartrash="/bin/rm -rf ~/.trash/* ~/.trash/.[!.]*"
 
 # open the file manager from terminal
-alias f="nautilus | pwd"
+function f(){
+CURDIR="$(pwd)"
+nautilus $CURDIR
+}
 
 bindkey -v
 #source /opt/ros/kinetic/setup.zsh
-#source /home/tianyi/catkin_ws/devel/setup.zsh
+source /home/tianyi/catkin_ws/devel/setup.zsh
+source /home/tianyi/ROSPlan/devel/setup.zsh
 
 if [[ -z "$TMUX" ]] && [ "$SSH_CONNECTION" != "" ]; then
-    tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux
+tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux
 fi
 
 
 alias tname="tmux display-message -p '#S'"
 
 function tkill(){
-	tmux kill-session -t $1
+tmux kill-session -t $1
 }
 
-#export ROS_WORKSPACE=/home/tianyi/catkin_ws
+export ROS_WORKSPACE=/home/tianyi/catkin_ws
 
-alias rosmakeshr="catkin_make -DCATKIN_WHITELIST_PACKAGES='pioneer_shr'"
 
-function rosmakepkg(){
-	catkin_make -DCATKIN_WHITELIST_PACKAGES="$1"
+function rosbuildpkgdebug(){
+catkin build -DCMAKE_BUILD_TYPE=Debug $1 
 }
 
-alias x=exit
+switch2s108(){
+export ROS_MASTER_URI=http://192.168.1.4:11311
+export ROS_HOSTNAME=192.168.1.16
+}
 
 export DISPLAY=:0
 
+alias x=exit
+
 function llc(){
-	num=$(ll $1 | wc -l)
-	echo $(($num -3))
+num=$(ll $1 | wc -l)
+echo $(($num -3))
 }
 
 # check process id by partial application name
 function cid(){
-	ps aux | grep -i $1
+ps aux | grep -i $1
 }
 
