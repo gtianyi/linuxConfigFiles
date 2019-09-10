@@ -3,7 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 #this should be change according to machine
-export ZSH="/home/tianyi/.oh-my-zsh"
+export ZSH="/home/aifs1/gu/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -286,8 +286,8 @@ nautilus $CURDIR
 
 bindkey -v
 #source /opt/ros/kinetic/setup.zsh
-source /home/tianyi/catkin_ws/devel/setup.zsh
-source /home/tianyi/ROSPlan/devel/setup.zsh
+#source /home/tianyi/catkin_ws/devel/setup.zsh
+#source /home/tianyi/ROSPlan/devel/setup.zsh
 
 if [[ -z "$TMUX" ]] && [ "$SSH_CONNECTION" != "" ]; then
 tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux
@@ -324,5 +324,8 @@ echo $(($num -3))
 # check process id by partial application name
 function cid(){
 ps aux | grep -i $1
+ps aux | grep -i $1
 }
+
+alias diff="colordiff -y"
 
