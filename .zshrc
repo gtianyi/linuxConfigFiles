@@ -201,7 +201,7 @@ alias vpnwhitecliff="sudo openvpn --config ~/.clientconfig.ovpn"
 
 #eval `dircolors /home/aifs1/gu/.dir_colors/dircolors`
 
-alias updatecv="cp /home/aifs1/gu/phd/jobHunt/cv/TianyiGu_CV.pdf /home/aifs1/gu/phd/jobHunt/public_html/ && scp -r /home/aifs1/gu/phd/jobHunt/public_html tg1034@agate.cs.unh.edu:~/"
+alias updatecv="mv /home/aifs1/gu/Downloads/cv_online.pdf /home/aifs1/gu/phd/jobHunt/public_html/TianyiGu_CV.pdf ; scp -r /home/aifs1/gu/phd/jobHunt/public_html tg1034@agate.cs.unh.edu:~/"
 
 #---------------cd bookmarks----------------------
 alias cdmotionplan="cd /home/aifs1/gu/gopath/src/github.com/gu/motionPlanning"
