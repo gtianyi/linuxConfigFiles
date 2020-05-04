@@ -101,9 +101,16 @@ source $ZSH/oh-my-zsh.sh
 # export LC_CTYPE=en_US.UTF-8
 #
 #copy from bashrc
+#
+#
+#echo prompt if reboot required
+if [ -f /var/run/reboot-required ]; then
+  echo 'reboot required'
+fi
+
 #more aliases
 alias csshai18="cssh ai1 ai2 ai3 ai4 ai5 ai6 ai8 ai9 ai10 ai11 ai12 ai13 ai14 ai15 ais1 ais2 ais3 ais4"
-alias csshai14="cssh ai1 ai2 ai3 ai4 ai5 ai6 ai8 ai9 ai10 ai11 ai12 ai13 ai14 ai15"
+alias csshai15="cssh ai1 ai2 ai3 ai4 ai5 ai6 ai8 ai9 ai10 ai11 ai12 ai13 ai14 ai15"
 #open file using nvim
 function openFileInBack(){
 if [[ ( ${1: -4} = ".pdf") || ( ${1: -4} = ".eps" ) ]]
@@ -161,6 +168,7 @@ lp -d hpw240 -o sides=two-sided-long-edge $1
 }
 
 alias startvnc="x11vnc -repeat -usepw -timeout 20 -quiet -display :0"
+alias killvnc="x11vnc -R stop"
 
 function scpforestpark(){
 scp $1 guty@132.177.219.140:~/Downloads/
@@ -249,10 +257,11 @@ sed -i -e 's/\r$//' $1
 
 function backupnancy(){
 unzip ~/Downloads/\[AAAI-20\]\ data-driven\ Nancy.zip -d ~/Downloads/temp
-mv ~/Downloads/temp/main.tex ~/phd/research/workingPaper/drafts/nancydd/
-rm -rf ~/Downloads/temp
+rm -rf ~/phd/research/workingPaper/drafts/nancydd/
+mv ~/Downloads/temp ~/phd/research/workingPaper/drafts/nancydd/
 rm -rf ~/Downloads/\[AAAI-20\]\ data-driven\ Nancy.zip
 cd ~/phd/research/workingPaper/drafts/nancydd/
+gaa
 gcam "[update from overleaf]--[nancy] $1"
 git push
 cd -
@@ -260,10 +269,11 @@ cd -
 
 function backupshr(){
 unzip ~/Downloads/\[HRI-20\]\ Smart\ Home\ Robot.zip -d ~/Downloads/temp
-mv ~/Downloads/temp/main.tex ~/tianyi/drafts/shr/
-rm -rf ~/Downloads/temp
+rm -rf ~/phd/research/workingPaper/drafts/shr
+mv ~/Downloads/temp ~/phd/research/workingPaper/drafts/shr
 rm -rf ~/Downloads/\[HRI-20\]\ Smart\ Home\ Robot.zip
-cd ~/tianyi/drafts/shr/
+cd ~/phd/research/workingPaper/drafts/shr
+gaa
 gcam "[update from overleaf]--[shr] $1"
 gcam "[update from overleaf] $1"
 git push
@@ -276,7 +286,7 @@ function myrm(){
 mv $@ ~/.trash
 }
 
-alias cleartrash="/bin/rm -rf ~/.trash/* ~/.trash/.[!.]*"
+alias cleartrash="/bin/rm -rf ~/.trash/*"
 
 # open the file manager from terminal
 function f(){
@@ -290,7 +300,7 @@ bindkey -v
 #source /home/tianyi/ROSPlan/devel/setup.zsh
 
 if [[ -z "$TMUX" ]] && [ "$SSH_CONNECTION" != "" ]; then
-tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux
+tmux attach-session -t def || tmux new-session -s def
 fi
 
 
@@ -327,4 +337,3 @@ ps aux | grep -i $1
 }
 
 alias diff="colordiff -y"
-
