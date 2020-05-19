@@ -185,6 +185,7 @@ alias sshbyodoin="ssh -p 31415 gu@byodoin.cs.unh.edu"
 alias sshaerials="ssh -p 31415 gu@aerials.cs.unh.edu"
 alias sshkraken="ssh -p 31415 gu@kraken.cs.unh.edu"
 alias sshcarl03="ssh -p 31415 tianyi@carl03.cs.unh.edu"
+alias sshai12="ssh gu@ai12.cs.unh.edu"
 
 #source /home/aifs1/gu/phd/pioneer-hallway/devel/setup.bash
 #source /opt/ros/kinetic/setup.bash
@@ -199,7 +200,7 @@ alias vpnwhitecliff="sudo openvpn --config ~/.clientconfig.ovpn"
 
 eval `dircolors /home/aifs1/gu/.dir_colors/dircolors`
 
-alias updatecv="cp /home/aifs1/gu/phd/jobHunt/cv/TianyiGu_CV.pdf /home/aifs1/gu/phd/jobHunt/public_html/ && scp -r /home/aifs1/gu/phd/jobHunt/public_html tg1034@agate.cs.unh.edu:~/"
+alias updatecv="mv /home/aifs1/gu/Downloads/cv_online.pdf /home/aifs1/gu/phd/jobHunt/public_html/TianyiGu_CV.pdf 2> /dev/null && scp -r /home/aifs1/gu/phd/jobHunt/public_html tg1034@agate.cs.unh.edu:~/"
 
 #---------------cd bookmarks----------------------
 alias cdmotionplan="cd /home/aifs1/gu/gopath/src/github.com/gu/motionPlanning"
@@ -280,3 +281,5 @@ myeps2pdf(){
 cid(){
 	ps aux | grep -i $1
 }
+
+alias x=exit
