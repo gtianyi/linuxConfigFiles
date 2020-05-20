@@ -198,7 +198,7 @@ findhere(){
 
 alias vpnwhitecliff="sudo openvpn --config ~/.clientconfig.ovpn"
 
-eval `dircolors /home/aifs1/gu/.dir_colors/dircolors`
+#eval `dircolors /home/aifs1/gu/.dir_colors/dircolors`
 
 alias updatecv="mv /home/aifs1/gu/Downloads/cv_online.pdf /home/aifs1/gu/phd/jobHunt/public_html/TianyiGu_CV.pdf 2> /dev/null && scp -r /home/aifs1/gu/phd/jobHunt/public_html tg1034@agate.cs.unh.edu:~/"
 
