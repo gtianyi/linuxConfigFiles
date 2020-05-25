@@ -3,7 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 #this should be change according to machine
-export ZSH="/home/aifs1/gu/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
