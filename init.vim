@@ -19,7 +19,7 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'jiangmiao/auto-pairs'
-"Plug 'roxma/vim-tmux-clipboard'
+Plug 'roxma/vim-tmux-clipboard'
 Plug 'lervag/vimtex'
 Plug 'tpope/vim-abolish' "subtitute preserve case
 Plug 'scrooloose/nerdcommenter' 
@@ -67,6 +67,7 @@ autocmd FileType python map <leader>f :Neoformat<cr>
 
 " Add python code checker config
 let g:neomake_python_enabled_makers = ['pylint']
+let g:neomake_python_pylint_exe = 'pylint3'
 autocmd FileType python call neomake#configure#automake('nrwi', 500)
 
 " Add hook for clang-rename 

@@ -119,7 +119,7 @@ okular $1 &
 elif [[ ( ${1: -4} = ".png" ) || ( ${1: -4} = ".jpg" ) || ( ${1: -5} = ".jpeg" ) ]]
 then
 eog $1 &
-elif [[ ( ${1: -4} = ".txt" ) || ( ${1: -3} = ".st" ) || ( ${1: -4} = ".bak" ) ]]
+elif [[ ( ${1: -3} = ".st" ) || ( ${1: -4} = ".bak" ) ]]
 then
 less -N $1
 elif [[ ( ${1: -5} = ".json" )]]
@@ -168,6 +168,7 @@ lp -d hpw240 -o sides=two-sided-long-edge $1
 }
 
 alias startvnc="x11vnc -repeat -usepw -timeout 20 -quiet -display :0"
+alias startvncaptiv="x11vnc -repeat -usepw -timeout 20 -quiet -display :120"
 alias killvnc="x11vnc -R stop"
 
 function scpforestpark(){
@@ -201,9 +202,7 @@ alias sshpioneerkings="ssh tianyi@192.168.1.4"
 
 alias checkupdate="/usr/lib/update-notifier/apt-check --human-readable"
 
-function findhere(){
-find ./ -name "*" | xargs grep "$1"
-}
+
 
 alias vpnwhitecliff="sudo openvpn --config ~/.clientconfig.ovpn"
 
@@ -221,6 +220,9 @@ alias cdbayesian="cd /home/aifs1/gu/phd/2018fall/cs998IndependentStudyWithMarek/
 alias cdmetronome="cd /home/aifs1/gu/phd/research/codeBase/metronome"
 alias cdshr="cd /home/tianyi/catkin_ws/src"
 alias cdcv="cd /home/aifs1/gu/phd/jobHunt/public_html/"
+alias cdsgg="cd ${HOME}/br/src/lib/SpatialGraphGeneration/test"
+alias cdbr="cd ${HOME}/br/src"
+alias cdbrb="cd ${HOME}/br_build"
 
 function t(){
 tmux a -t $1
@@ -322,7 +324,8 @@ export ROS_MASTER_URI=http://192.168.1.4:11311
 export ROS_HOSTNAME=192.168.1.16
 }
 
-export DISPLAY=:0
+export DISPLAY=:120
+#export DISPLAY=:0
 
 alias x=exit
 
@@ -337,3 +340,12 @@ ps aux | grep -i $1
 }
 
 alias diff="colordiff -y"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+alias fzfp="fzf --preview 'bat --style=numbers --color=always {} | head -500'"
+
+function findhere(){
+rg -i "$1" -l | fzfp
+}
