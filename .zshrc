@@ -346,6 +346,10 @@ alias diff="colordiff -y"
 
 alias fzfp="fzf --preview 'bat --style=numbers --color=always {} | head -500'"
 
+function vfzfp(){
+    nvim "$(fzfp)"
+}
+
 function findhere(){
 rg -i "$1" -l | fzfp
 }
