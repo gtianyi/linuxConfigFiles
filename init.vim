@@ -40,10 +40,18 @@ set grepprg=rg\ --vimgrep\ --smart-case\ --hidden\ --follow
 let g:rg_derive_root='true'
 
 " keymap for ripgrep and fzf
+" start ripgrep
 nnoremap \ :Rg<CR>
+" start ripgrep with the work under current cursor
+nnoremap <Leader>rg :Rg <C-R><C-W><CR>
+" start fzf
 nnoremap <C-T> :Files<cr>
+" start fzf to serch for buffers
 nnoremap <Leader>b :Buffers<cr>
+" start fzf to serch for text in the current file
 nnoremap <Leader>s :BLines<cr>
+" start fzf to serch for the word under current cursor in the current file 
+nnoremap <Leader>sc :BLines <C-R><C-W><cr>
 
 " start fzf pop window in another tmux window
 "if exists('$TMUX')
