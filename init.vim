@@ -93,10 +93,11 @@ imap <leader>f <c-o>:py3f ~/.config/nvim/plugged/clang-format.py<cr>
 
 " Add hook for python formatter
 autocmd FileType python map <leader>f :Neoformat<cr>
+let g:python3_host_prog = '$HOME/.conda/envs/neovim/bin/python'
 
 " Add python code checker config
 let g:neomake_python_enabled_makers = ['pylint']
-let g:neomake_python_pylint_exe = 'pylint3'
+"let g:neomake_python_pylint_exe = 'pylint3'
 autocmd FileType python call neomake#configure#automake('nrwi', 500)
 
 " Add hook for clang-rename 
