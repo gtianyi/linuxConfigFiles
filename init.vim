@@ -53,6 +53,9 @@ nnoremap <Leader>s :BLines<cr>
 " start fzf to serch for the word under current cursor in the current file 
 nnoremap <Leader>sc :BLines <C-R><C-W><cr>
 
+"fzf layout
+let g:fzf_layout = { 'down': '~90%' }
+
 " start fzf pop window in another tmux window
 "if exists('$TMUX')
   "let g:fzf_layout = { 'tmux': '-p90%,60%' }
