@@ -32,6 +32,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'trevordmiller/nova-vim'
 Plug 'junegunn/fzf', 
 Plug 'junegunn/fzf.vim'
+Plug 'Chiel92/vim-autoformat' 
 call plug#end()            
 
 " repgrep
@@ -105,6 +106,10 @@ autocmd FileType python call neomake#configure#automake('nrwi', 500)
 
 " Add hook for clang-rename 
 map <leader>r :pyf ~/.config/nvim/plugged/clang-rename.py<cr>
+
+" I am using Autoformat for cmakelist and shell scipt only for now 
+" If this works well we should swith all source file format to use it
+map <leader>m :Autoformat<CR>
 
 " Add hook for ycm 
 nnoremap <leader>j :YcmCompleter GoTo<CR>
