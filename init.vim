@@ -90,13 +90,12 @@ syntax enable
 "colorscheme solarized
 colorscheme nova
 
-" Add hook for clang-format
-" have to sudo apt install clang-format before use
-map <leader>f :py3f ~/.config/nvim/plugged/clang-format.py<cr>
-imap <leader>f <c-o>:py3f ~/.config/nvim/plugged/clang-format.py<cr>
+" I am using Autoformat for c++, cmakelist and shell scipt only for now 
+" If this works well for python we should swith all source file format to use it
+map <leader>f :Autoformat<CR>
 
 " Add hook for python formatter
-autocmd FileType python map <leader>f :Neoformat<cr>
+autocmd FileType python map <leader>m :Neoformat<cr>
 let g:python3_host_prog = '$HOME/.conda/envs/neovim/bin/python'
 
 " Add python code checker config
@@ -106,10 +105,6 @@ autocmd FileType python call neomake#configure#automake('nrwi', 500)
 
 " Add hook for clang-rename 
 map <leader>r :pyf ~/.config/nvim/plugged/clang-rename.py<cr>
-
-" I am using Autoformat for cmakelist and shell scipt only for now 
-" If this works well we should swith all source file format to use it
-map <leader>m :Autoformat<CR>
 
 " Add hook for ycm 
 nnoremap <leader>j :YcmCompleter GoTo<CR>
