@@ -35,6 +35,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'Chiel92/vim-autoformat' 
 call plug#end()            
 
+"indicate nvim python engine 
+let g:python3_host_prog = '$HOME/.conda/envs/neovim/bin/python'
+
 " repgrep
 set grepprg=rg\ --vimgrep\ --smart-case\ --hidden\ --follow
 " use the current working directory (cwd) for ripgrep
@@ -90,13 +93,8 @@ syntax enable
 "colorscheme solarized
 colorscheme nova
 
-" I am using Autoformat for c++, cmakelist and shell scipt only for now 
-" If this works well for python we should swith all source file format to use it
+" Using Autoformat for c++, cmakelist, python and shell scipt 
 map <leader>f :Autoformat<CR>
-
-" Add hook for python formatter
-autocmd FileType python map <leader>m :Neoformat<cr>
-let g:python3_host_prog = '$HOME/.conda/envs/neovim/bin/python'
 
 " Add python code checker config
 let g:neomake_python_enabled_makers = ['pylint']
