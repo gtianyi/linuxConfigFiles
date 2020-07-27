@@ -93,8 +93,9 @@ syntax enable
 "colorscheme solarized
 colorscheme nova
 
-" Using Autoformat for c++, cmakelist, python and shell scipt 
+" Using Autoformat for c++, cmakelist, python, json and shell scipt 
 map <leader>f :Autoformat<CR>
+"let g:autoformat_verbosemode=1
 
 " Add python code checker config
 let g:neomake_python_enabled_makers = ['pylint']
