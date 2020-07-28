@@ -196,6 +196,7 @@ alias sshaerials="ssh -p 31415 gu@aerials.cs.unh.edu"
 alias sshkraken="ssh -p 31415 gu@kraken.cs.unh.edu"
 alias sshcorona="ssh -p 31415 gu@corona.cs.unh.edu"
 alias sshpioneerkings="ssh tianyi@192.168.1.4"
+alias sshaptiv="ssh rjxlwy@10.192.46.230"
 
 #source /home/aifs1/gu/phd/pioneer-hallway/devel/setup.bash
 #source /opt/ros/kinetic/setup.bash
