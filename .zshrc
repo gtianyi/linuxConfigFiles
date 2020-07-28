@@ -168,7 +168,7 @@ lp -d hpw240 -o sides=two-sided-long-edge $1
 }
 
 alias startvnc="x11vnc -repeat -usepw -timeout 20 -quiet -display :0"
-alias startvncaptiv="x11vnc -repeat -usepw -timeout 20 -quiet -display :120"
+alias startvncaptiv="x11vnc -repeat -usepw -timeout 20 -quiet -display :140"
 alias killvnc="x11vnc -R stop"
 
 function scpforestpark(){
@@ -324,7 +324,7 @@ export ROS_MASTER_URI=http://192.168.1.4:11311
 export ROS_HOSTNAME=192.168.1.16
 }
 
-export DISPLAY=:120
+#export DISPLAY=:140
 #export DISPLAY=:0
 
 alias x=exit
@@ -353,3 +353,25 @@ function vfzfp(){
 function findhere(){
 rg -i "$1" -l | fzfp
 }
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/opt/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+export MAP_MANAGER_CACHE=$HOME/.map_manager_cache
+export MAPS_DB_ROOT=$HOME/.maps_db_root
+export NUDEEP_DIR=$HOME/nuDeep
+export PYTHONDONTWRITEBYTECODE=1
+
+alias gpaptiv="globalprotect connect --portal vpn.us.aptiv.com"
