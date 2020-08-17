@@ -13,12 +13,7 @@ set noswapfile
 
 " all plugin listed here would be installed automatically
 call plug#begin()
-Plug 'VundleVim/Vundle.vim'
-Plug 'ervandew/supertab'
-Plug 'Valloric/YouCompleteMe'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'jiangmiao/auto-pairs'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'roxma/vim-tmux-clipboard'
 Plug 'lervag/vimtex'
 Plug 'tpope/vim-abolish' "subtitute preserve case
@@ -33,6 +28,7 @@ Plug 'trevordmiller/nova-vim'
 Plug 'junegunn/fzf', 
 Plug 'junegunn/fzf.vim'
 Plug 'Chiel92/vim-autoformat' 
+Plug 'vim-airline/vim-airline' 
 call plug#end()            
 
 "indicate nvim python engine 
@@ -60,25 +56,6 @@ nnoremap <Leader>sc :BLines <C-R><C-W><cr>
 "fzf layout
 let g:fzf_layout = { 'down': '~90%' }
 
-" start fzf pop window in another tmux window
-"if exists('$TMUX')
-  "let g:fzf_layout = { 'tmux': '-p90%,60%' }
-"else
-  "let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
-"endif
-"let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
-
-" don't ask for ycm confirmation
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_global_ycm_extra_conf = '~/.config/nvim/plugged/YouCompleteMe/.ycm_extra_conf.py'
-let g:ycm_always_populate_location_list=1
-let g:ycm_filetype_blacklist = { 'tex': 1 ,'html' : 1}
-let g:ycm_autoclose_preview_window_after_insertion = 1
-nnoremap <leader>n :lnext<CR>
-"nnoremap <leader>b :lprevious<CR>
-" other ycm settings which are used for test
-"let g:ycm_server_keep_logfiles = 1
-"let g:ycm_server_log_level = 'debug'
 "search setting
 set incsearch 
 set nohlsearch
@@ -87,37 +64,16 @@ set smartcase
 
 " color
 syntax enable
-"set termguicolors
-"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-"set background=dark
-"colorscheme solarized
 colorscheme nova
 
 " Using Autoformat for c++, cmakelist, python, json and shell scipt 
 map <leader>f :Autoformat<CR>
 "let g:autoformat_verbosemode=1
 
-" Add python code checker config
+" Add python code checker config, this should be replaced by coc once tested
 let g:neomake_python_enabled_makers = ['pylint']
 "let g:neomake_python_pylint_exe = 'pylint3'
 autocmd FileType python call neomake#configure#automake('nrwi', 500)
-
-" Add hook for clang-rename 
-map <leader>r :pyf ~/.config/nvim/plugged/clang-rename.py<cr>
-
-" Add hook for ycm 
-nnoremap <leader>j :YcmCompleter GoTo<CR>
-nnoremap <leader>x :YcmCompleter FixIt<CR>
-
-" make YCM compatible with UltiSnips
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
-" Snips trigger
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<Right>"
-let g:UltiSnipsJumpBackwardTrigger="<Left>"
 
 "tab space
 set tabstop=4       " number of visual spaces per TAB
@@ -151,3 +107,5 @@ vnoremap <leader>P "+P
 " enable spell check on html
 autocmd FileType html setlocal spell
 autocmd FileType html setlocal textwidth=74
+
+source $HOME/.config/nvim/coc.vim
