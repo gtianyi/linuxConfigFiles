@@ -29,6 +29,7 @@ Plug 'junegunn/fzf',
 Plug 'junegunn/fzf.vim'
 Plug 'Chiel92/vim-autoformat' 
 Plug 'vim-airline/vim-airline' 
+Plug 'vim-scripts/DoxygenToolkit.vim' 
 call plug#end()            
 
 "indicate nvim python engine 
