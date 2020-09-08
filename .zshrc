@@ -168,7 +168,7 @@ lp -d hpw240 -o sides=two-sided-long-edge $1
 }
 
 alias startvnc="x11vnc -repeat -usepw -timeout 20 -quiet -display :0"
-alias startvncaptiv="x11vnc -repeat -usepw -timeout 20 -quiet -display :140"
+alias startvncaptiv="x11vnc -repeat -usepw -timeout 20 -quiet -display :120"
 alias killvnc="x11vnc -R stop"
 
 function scpforestpark(){
@@ -196,7 +196,6 @@ alias sshaerials="ssh -p 31415 gu@aerials.cs.unh.edu"
 alias sshkraken="ssh -p 31415 gu@kraken.cs.unh.edu"
 alias sshcorona="ssh -p 31415 gu@corona.cs.unh.edu"
 alias sshpioneerkings="ssh tianyi@192.168.1.4"
-alias sshaptiv="ssh rjxlwy@10.192.46.230"
 
 #source /home/aifs1/gu/phd/pioneer-hallway/devel/setup.bash
 #source /opt/ros/kinetic/setup.bash
@@ -212,18 +211,19 @@ alias vpnwhitecliff="sudo openvpn --config ~/.clientconfig.ovpn"
 alias updatecv="mv /home/aifs1/gu/Downloads/cv_online.pdf /home/aifs1/gu/phd/jobHunt/public_html/TianyiGu_CV.pdf ; scp -r /home/aifs1/gu/phd/jobHunt/public_html tg1034@agate.cs.unh.edu:~/"
 
 #---------------cd bookmarks----------------------
-alias cdmotionplan="cd /home/aifs1/gu/gopath/src/github.com/gu/motionPlanning"
-alias cddynamic="cd /home/aifs1/gu/phd/2017fall/cs980reinforcementLearning/0project/DynamicObstacles/stochastic/MDP"
-alias cdalg="cd /home/aifs1/gu/phd/2016spring/Algorithms/"
-alias cdnancy="cd /home/aifs1/gu/phd/research/workingPaper/realtime-nancy/nancyCodeBase/"
-alias cdandrewnancy="cd /home/aifs1/gu/phd/research/workingPaper/realtime-nancy/andrewCodeBase/"
-alias cdbayesian="cd /home/aifs1/gu/phd/2018fall/cs998IndependentStudyWithMarek/bayesian_exploration"
-alias cdmetronome="cd /home/aifs1/gu/phd/research/codeBase/metronome"
-alias cdshr="cd /home/tianyi/catkin_ws/src"
-alias cdcv="cd /home/aifs1/gu/phd/jobHunt/public_html/"
+alias cdmotionplan="cd ${HOME}/gopath/src/github.com/gu/motionPlanning"
+alias cddynamic="cd ${HOME}/phd/2017fall/cs980reinforcementLearning/0project/DynamicObstacles/stochastic/MDP"
+alias cdalg="cd ${HOME}/phd/2016spring/Algorithms/"
+alias cdnancy="cd ${HOME}/phd/research/workingPaper/realtime-nancy/nancyCodeBase/"
+alias cdandrewnancy="cd ${HOME}/phd/research/workingPaper/realtime-nancy/andrewCodeBase/"
+alias cdbayesian="cd ${HOME}/phd/2018fall/cs998IndependentStudyWithMarek/bayesian_exploration"
+alias cdmetronome="cd ${HOME}/phd/research/codeBase/metronome"
+alias cdshr="cd ${HOME}/catkin_ws/src"
+alias cdcv="cd ${HOME}/phd/jobHunt/public_html/"
 alias cdsgg="cd ${HOME}/br/src/lib/SpatialGraphGeneration/test"
 alias cdbr="cd ${HOME}/br/src"
 alias cdbrb="cd ${HOME}/br_build"
+alias cdbcs="cd ${HOME}/phd/research/workingPaper/boundedCostSearch/tianyicodebase"
 
 function t(){
 tmux a -t $1
@@ -325,8 +325,8 @@ export ROS_MASTER_URI=http://192.168.1.4:11311
 export ROS_HOSTNAME=192.168.1.16
 }
 
-#export DISPLAY=:140
-#export DISPLAY=:0
+#export DISPLAY=:120
+export DISPLAY=:0
 
 alias x=exit
 
@@ -354,25 +354,3 @@ function vfzfp(){
 function findhere(){
 rg -i "$1" -l | fzfp
 }
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/opt/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/opt/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/opt/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-export MAP_MANAGER_CACHE=$HOME/.map_manager_cache
-export MAPS_DB_ROOT=$HOME/.maps_db_root
-export NUDEEP_DIR=$HOME/nuDeep
-export PYTHONDONTWRITEBYTECODE=1
-
-alias gpaptiv="globalprotect connect --portal vpn.us.aptiv.com"

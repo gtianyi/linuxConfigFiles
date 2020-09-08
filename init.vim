@@ -33,7 +33,7 @@ Plug 'vim-scripts/DoxygenToolkit.vim'
 call plug#end()            
 
 "indicate nvim python engine 
-let g:python3_host_prog = '$HOME/.conda/envs/neovim/bin/python'
+let g:python3_host_prog = '/usr/bin/python3'
 
 " repgrep
 set grepprg=rg\ --vimgrep\ --smart-case\ --hidden\ --follow
