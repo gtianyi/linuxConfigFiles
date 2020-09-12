@@ -13,8 +13,8 @@ set noswapfile
 
 " all plugin listed here would be installed automatically
 call plug#begin()
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'roxma/vim-tmux-clipboard'
+Plug 'neoclide/coc.nvim', {'branch': 'release'} 
+Plug 'jiangmiao/auto-pairs'
 Plug 'lervag/vimtex'
 Plug 'tpope/vim-abolish' "subtitute preserve case
 Plug 'scrooloose/nerdcommenter' 
