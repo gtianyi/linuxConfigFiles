@@ -33,7 +33,7 @@ Plug 'vim-scripts/DoxygenToolkit.vim'
 call plug#end()            
 
 "indicate nvim python engine 
-let g:python3_host_prog = '/usr/bin/python3'
+let g:python3_host_prog = '$HOME/miniconda3/bin/python'
 
 " repgrep
 set grepprg=rg\ --vimgrep\ --smart-case\ --hidden\ --follow
@@ -70,11 +70,6 @@ colorscheme nova
 " Using Autoformat for c++, cmakelist, python, json and shell scipt 
 map <leader>f :Autoformat<CR>
 "let g:autoformat_verbosemode=1
-
-" Add python code checker config, this should be replaced by coc once tested
-let g:neomake_python_enabled_makers = ['pylint']
-"let g:neomake_python_pylint_exe = 'pylint3'
-autocmd FileType python call neomake#configure#automake('nrwi', 500)
 
 "tab space
 set tabstop=4       " number of visual spaces per TAB
