@@ -140,13 +140,13 @@ export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/usr/local/go/bin
 
 #OMPL
-export LIBRARY_PATH=/home/aifs1/gu/lib/:$LIBRARY_PATH
-export LD_LIBRARY_PATH=/home/aifs1/gu/lib/:$LD_LIBRARY_PATH
+#export LIBRARY_PATH=/home/aifs1/gu/lib/:$LIBRARY_PATH
+#export LD_LIBRARY_PATH=/home/aifs1/gu/lib/:$LD_LIBRARY_PATH
 #export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64"
 export CUDA_HOME=/usr/local/cuda
 
 #python
-export PYTHONPATH=$PYTHONPATH:/home/aifs1/gu/lib/python2.7/dist-packages
+#export PYTHONPATH=$PYTHONPATH:/home/aifs1/gu/lib/python2.7/dist-packages
 
 #craam
 export EIGEN3_INCLUDE_DIR=/usr/include/eigen3
@@ -286,7 +286,7 @@ cd -
 #alias rm='echo -e "rm is disabled, use myrm or /bin/rm instead.\nuse cleartrash to clear the trash folder"'
 
 function myrm(){
-mv $@ ~/.trash
+mv --backup=t $@ ~/.trash
 }
 
 alias cleartrash="/bin/rm -rf ~/.trash/*"
