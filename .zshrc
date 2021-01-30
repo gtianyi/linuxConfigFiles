@@ -224,6 +224,7 @@ alias cdsgg="cd ${HOME}/br/src/lib/SpatialGraphGeneration/test"
 alias cdbr="cd ${HOME}/br/src"
 alias cdbrb="cd ${HOME}/br_build"
 alias cdbcs="cd ${HOME}/phd/research/workingPaper/boundedCostSearch/tianyicodebase"
+alias cdbss="cd ${HOME}/phd/research/workingPaper/boundedSuboptimalSearch/bsscodebase"
 
 function t(){
 tmux a -t $1
