@@ -284,7 +284,7 @@ git push
 cd -
 }
 
-#alias rm='echo -e "rm is disabled, use myrm or /bin/rm instead.\nuse cleartrash to clear the trash folder"'
+alias rm='echo -e "rm is disabled, use myrm or /bin/rm instead.\nuse cleartrash to clear the trash folder"'
 
 function myrm(){
 mv --backup=t $@ ~/.trash
