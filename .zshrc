@@ -225,6 +225,7 @@ alias cdbr="cd ${HOME}/br/src"
 alias cdbrb="cd ${HOME}/br_build"
 alias cdbcs="cd ${HOME}/phd/research/workingPaper/boundedCostSearch/tianyicodebase"
 alias cdbss="cd ${HOME}/phd/research/workingPaper/boundedSuboptimalSearch/bsscodebase"
+alias cdmeta="cd ${HOME}/phd/research/workingPaper/metareasoning/metaReasonRealTimePlanningCodeBase"
 
 function t(){
 tmux a -t $1
