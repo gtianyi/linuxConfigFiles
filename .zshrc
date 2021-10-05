@@ -226,6 +226,7 @@ alias cdbrb="cd ${HOME}/br_build"
 alias cdbcs="cd ${HOME}/phd/research/workingPaper/boundedCostSearch/tianyicodebase"
 alias cdbss="cd ${HOME}/phd/research/workingPaper/boundedSuboptimalSearch/bsscodebase"
 alias cdmeta="cd ${HOME}/phd/research/workingPaper/metareasoning/metaReasonRealTimePlanningCodeBase"
+alias cdssipp="cd ${HOME}/phd/research/workingPaper/situatedSIPP/situatedSIPPCodeBase"
 
 function t(){
 tmux a -t $1
@@ -372,3 +373,4 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+alias gdrive="google-drive-ocamlfuse /home/aifs1/gu/phd/myGoogleDrive"
