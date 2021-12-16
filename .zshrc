@@ -208,7 +208,8 @@ alias vpnwhitecliff="sudo openvpn --config ~/.clientconfig.ovpn"
 
 #eval `dircolors /home/aifs1/gu/.dir_colors/dircolors`
 
-alias updatecv="mv /home/aifs1/gu/Downloads/cv_online.pdf /home/aifs1/gu/phd/jobHunt/public_html/TianyiGu_CV.pdf ; scp -r /home/aifs1/gu/phd/jobHunt/public_html tg1034@agate.cs.unh.edu:~/ ; cd /home/aifs1/gu/phd/jobHunt/public_html ; gaa ; gcamp \"update\" "
+alias updatecv="mv /home/aifs1/gu/Downloads/cv_online.pdf /home/aifs1/gu/phd/jobHunt/public_html/TianyiGu_CV.pdf ; cd /home/aifs1/gu/phd/jobHunt/public_html ; gaa ; gcamp \"update\" "
+alias updatedissertation="mv /home/aifs1/gu/Downloads/Tianyi_s_PhD_Dissertation.pdf /home/aifs1/gu/phd/jobHunt/public_html/publication/Tianyi_s_PhD_Dissertation.pdf ; updatecv "
 
 #---------------cd bookmarks----------------------
 alias cdmotionplan="cd ${HOME}/gopath/src/github.com/gu/motionPlanning"
@@ -227,6 +228,7 @@ alias cdbcs="cd ${HOME}/phd/research/workingPaper/boundedCostSearch/tianyicodeba
 alias cdbss="cd ${HOME}/phd/research/workingPaper/boundedSuboptimalSearch/bsscodebase"
 alias cdmeta="cd ${HOME}/phd/research/workingPaper/metareasoning/metaReasonRealTimePlanningCodeBase"
 alias cdssipp="cd ${HOME}/phd/research/workingPaper/situatedSIPP/situatedSIPPCodeBase"
+alias cdssippexp="cd ${HOME}/phd/research/workingPaper/situatedSIPP/situatedSIPPCodeBase/instances/Examples/small"
 
 function t(){
 tmux a -t $1
