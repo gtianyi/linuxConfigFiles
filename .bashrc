@@ -198,7 +198,7 @@ findhere(){
 
 alias vpnwhitecliff="sudo openvpn --config ~/.clientconfig.ovpn"
 
-#eval `dircolors /home/aifs1/gu/.dir_colors/dircolors`
+eval `dircolors /home/aifs1/gu/.dir_colors/dircolors`
 
 alias updatecv="mv /home/aifs1/gu/Downloads/cv_online.pdf /home/aifs1/gu/phd/jobHunt/public_html/TianyiGu_CV.pdf 2> /dev/null && scp -r /home/aifs1/gu/phd/jobHunt/public_html tg1034@agate.cs.unh.edu:~/"
 
@@ -210,6 +210,9 @@ alias cdnancy="cd /home/aifs1/gu/phd/research/workingPaper/realtime-nancy/nancyC
 alias cdandrewnancy="cd /home/aifs1/gu/phd/research/workingPaper/realtime-nancy/andrewCodeBase/"
 alias cdbayesian="cd /home/aifs1/gu/phd/2018fall/cs998IndependentStudyWithMarek/bayesian_exploration"
 alias cdmetronome="cd /home/aifs1/gu/phd/research/codeBase/metronome"
+alias cdbcs="cd /home/aifs1/gu/phd/research/workingPaper/boundedCostSearch/tianyicodebase/script/testHarnesses"
+alias cdbss="cd /home/aifs1/gu/phd/research/workingPaper/boundedSuboptimalSearch/bsscodebase/script/testHarnesses"
+alias cdmeta="cd /home/aifs1/gu/phd/research/workingPaper/metareasoning/metaReasonRealTimePlanningCodeBase/script/testHarnesses"
 
 t(){
     tmux a -t $1
@@ -282,4 +285,27 @@ cid(){
 	ps aux | grep -i $1
 }
 
+texp(){
+    hostname=$(cat /proc/sys/kernel/hostname)
+    sendSlackNotification.bash "#experiments" "experiment_bot" "<@tianyi> 's experiments on ${hostname} finished manually."
+}
+
 alias x=exit
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/aifs1/gu/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/aifs1/gu/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/aifs1/gu/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/aifs1/gu/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
