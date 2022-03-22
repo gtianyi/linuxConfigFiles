@@ -104,4 +104,14 @@ vnoremap <leader>P "+P
 autocmd FileType html setlocal spell
 autocmd FileType html setlocal textwidth=74
 
+" Doxygen
+let g:DoxygenToolkit_briefTag_pre="One sentence summary of the function.  "
+let g:DoxygenToolkit_paramTag_pre="@param[in] "
+let g:DoxygenToolkit_returnTag="@returns   "
+let g:DoxygenToolkit_commentType="C++"
+let g:DoxygenToolkit_compactDoc="yes"
+let g:DoxygenToolkit_authorName="Tianyi Gu"
+let g:DoxygenToolkit_licenseTag="My own license"
+map <Leader>dg :Dox<CR>
+
 source $HOME/.config/nvim/coc.vim
