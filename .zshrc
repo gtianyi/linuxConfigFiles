@@ -388,9 +388,9 @@ alias gdiff="git status -s \
  --bind=shift-down:preview-down --bind=shift-up:preview-up \
  --preview-window=right:60%:wrap"
  
- alias gdiffall="git diff --name-only \$(git merge-base HEAD origin/develop) HEAD \
+ alias gdiffall="git diff --name-only --relative \$(git merge-base HEAD origin/develop) HEAD \
  | fzf --no-sort --reverse \
- --preview 'git diff --color=always \$(git merge-base HEAD origin/develop) HEAD | diff-so-fancy' \
+ --preview 'git diff --color=always \$(git merge-base HEAD origin/develop) HEAD -- {+1} | diff-so-fancy' \
  --bind=shift-down:preview-down --bind=shift-up:preview-up \
  --preview-window=right:60%:wrap"
 
