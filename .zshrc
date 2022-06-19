@@ -382,16 +382,26 @@ export PATH="/home/tgu/python/bin:$PATH"
 export PATH=$PATH:~/.aws/bin/
 source /home/tgu/av/argo/scripts/set_argo_paths.sh
 
-alias gdiff="git status -s \
- | fzf --no-sort --reverse \
- --preview 'git diff --color=always {+2} | diff-so-fancy' \
- --bind=shift-down:preview-down --bind=shift-up:preview-up \
- --preview-window=right:60%:wrap"
- 
- alias gdiffall="git diff --name-only --relative \$(git merge-base HEAD origin/develop) HEAD \
- | fzf --no-sort --reverse \
- --preview 'git diff --color=always \$(git merge-base HEAD origin/develop) HEAD -- {+1} | diff-so-fancy' \
- --bind=shift-down:preview-down --bind=shift-up:preview-up \
- --preview-window=right:60%:wrap"
+function gdiff() {
+    selectedFile="$(git status -s \
+         | sed s/^...// \
+         | fzf --no-sort --reverse \
+         --preview 'git diff --color=always {+1} | diff-so-fancy' \
+         --bind=shift-down:preview-down --bind=shift-up:preview-up \
+         --preview-window=right:60%:wrap)"
+    git diff --color=always $selectedFile | diff-so-fancy
+}
+
+function gdiffall() {
+    mergebase="$(git merge-base HEAD origin/develop)"
+    fzfcommand="git diff --name-only --relative $mergebase HEAD \
+     | fzf --no-sort --reverse \
+     --preview 'git diff --color=always $mergebase HEAD -- {+1} | diff-so-fancy' \
+     --bind=shift-down:preview-down --bind=shift-up:preview-up \
+     --preview-window=right:60%:wrap"
+    #eval $(echo $fzfcommand)
+    selectedFile="$(eval $fzfcommand)"
+    git diff --color=always $mergebase HEAD $selectedFile | diff-so-fancy
+}
 
 alias gcob='git branch | fzf | xargs git checkout'
