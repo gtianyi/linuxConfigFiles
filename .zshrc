@@ -392,6 +392,17 @@ function gdiff() {
     git diff --color=always $selectedFile | diff-so-fancy
 }
 
+function gdiffprev() {
+    fzfcommand="git diff --name-only --relative HEAD^ HEAD \
+     | fzf --no-sort --reverse \
+     --preview 'git diff --color=always HEAD^ HEAD -- {+1} | diff-so-fancy' \
+     --bind=shift-down:preview-down --bind=shift-up:preview-up \
+     --preview-window=right:60%:wrap"
+    #eval $(echo $fzfcommand)
+    selectedFile="$(eval $fzfcommand)"
+    git diff --color=always HEAD^ HEAD $selectedFile | diff-so-fancy
+}
+
 function gdiffall() {
     mergebase="$(git merge-base HEAD origin/develop)"
     fzfcommand="git diff --name-only --relative $mergebase HEAD \
