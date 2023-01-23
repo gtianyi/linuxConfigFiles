@@ -377,11 +377,6 @@ unset __conda_setup
 
 alias gdrive="google-drive-ocamlfuse /home/aifs1/gu/phd/myGoogleDrive"
 
-#-----------config for argo desktop machine------
-export PATH="/home/tgu/python/bin:$PATH"
-export PATH=$PATH:~/.aws/bin/
-source /home/tgu/av/argo/scripts/set_argo_paths.sh
-
 function gdiff() {
     selectedFile="$(git status -s \
          | sed s/^...// \
