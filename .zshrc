@@ -412,6 +412,7 @@ function gdiffall() {
 
 alias gcob='git branch | fzf | xargs git checkout'
 alias gpfwl='git push --force-with-lease'
+alias grebasemaster='git rebase -i origin/master'
 
 # Setting fd as the default source for fzf
 export FZF_DEFAULT_COMMAND='fdfind --type f'
