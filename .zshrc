@@ -122,7 +122,7 @@ eog $1 &
 elif [[ ( ${1: -3} = ".st" ) || ( ${1: -4} = ".bak" ) ]]
 then
 less -N $1
-elif [[ ( ${1: -5} = ".json" )]]
+elif [[ ( ${1: -5} = ".json" ) ]]
 then
 jq -C . $1 | less -r
 else
@@ -220,7 +220,7 @@ alias cdandrewnancy="cd ${HOME}/phd/research/workingPaper/realtime-nancy/andrewC
 alias cdbayesian="cd ${HOME}/phd/2018fall/cs998IndependentStudyWithMarek/bayesian_exploration"
 alias cdmetronome="cd ${HOME}/phd/research/codeBase/metronome"
 alias cdshr="cd ${HOME}/catkin_ws/src"
-alias cdcv="cd ${HOME}/phd/jobHunt/public_html/"
+alias cdcv="cd ${HOME}/Documents/gtianyi.github.io"
 alias cdsgg="cd ${HOME}/br/src/lib/SpatialGraphGeneration/test"
 alias cdbr="cd ${HOME}/br/src"
 alias cdbrb="cd ${HOME}/br_build"
@@ -229,6 +229,8 @@ alias cdbss="cd ${HOME}/phd/research/workingPaper/boundedSuboptimalSearch/bsscod
 alias cdmeta="cd ${HOME}/phd/research/workingPaper/metareasoning/metaReasonRealTimePlanningCodeBase"
 alias cdssipp="cd ${HOME}/phd/research/workingPaper/situatedSIPP/situatedSIPPCodeBase"
 alias cdssippexp="cd ${HOME}/phd/research/workingPaper/situatedSIPP/situatedSIPPCodeBase/instances/Examples/small"
+alias cdav="cd ${HOME}/av-stack"
+alias cdpcd="cd ${HOME}/av-stack/av/planning_controls"
 
 function t(){
 tmux a -t $1
@@ -331,7 +333,7 @@ export ROS_HOSTNAME=192.168.1.16
 }
 
 #export DISPLAY=:120
-export DISPLAY=:0
+export DISPLAY=:1
 
 alias x=exit
 
@@ -377,6 +379,7 @@ unset __conda_setup
 
 alias gdrive="google-drive-ocamlfuse /home/aifs1/gu/phd/myGoogleDrive"
 
+#-----------config for argo desktop machine------
 function gdiff() {
     selectedFile="$(git status -s \
          | sed s/^...// \
