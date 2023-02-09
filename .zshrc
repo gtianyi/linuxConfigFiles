@@ -208,7 +208,7 @@ alias vpnwhitecliff="sudo openvpn --config ~/.clientconfig.ovpn"
 
 #eval `dircolors /home/aifs1/gu/.dir_colors/dircolors`
 
-alias updatecv="mv /home/aifs1/gu/Downloads/cv_online.pdf /home/aifs1/gu/phd/jobHunt/public_html/TianyiGu_CV.pdf ; cd /home/aifs1/gu/phd/jobHunt/public_html ; gaa ; gcamp \"update\" "
+alias updatecv="mv ${HOME}/Downloads/cv_online.pdf ${HOME}/Documents/gtianyi.github.io/TianyiGu_CV.pdf ; cd ${HOME}/Documents/gtianyi.github.io ; gaa ; gcamp \"update\" "
 alias updatedissertation="mv /home/aifs1/gu/Downloads/Tianyi_s_PhD_Dissertation.pdf /home/aifs1/gu/phd/jobHunt/public_html/publication/Tianyi_s_PhD_Dissertation.pdf ; updatecv "
 
 #---------------cd bookmarks----------------------
@@ -402,7 +402,7 @@ function gdiffprev() {
 }
 
 function gdiffall() {
-    mergebase="$(git merge-base HEAD origin/develop)"
+    mergebase="$(git merge-base HEAD origin/master)"
     fzfcommand="git diff --name-only --relative $mergebase HEAD \
      | fzf --no-sort --reverse \
      --preview 'git diff --color=always $mergebase HEAD -- {+1} | diff-so-fancy' \
@@ -422,3 +422,4 @@ export FZF_DEFAULT_COMMAND='fdfind --type f'
 
 # To apply the command to CTRL-T as well
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND='fdfind --type d'
