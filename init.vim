@@ -33,7 +33,7 @@ Plug 'vim-scripts/DoxygenToolkit.vim'
 call plug#end()            
 
 "indicate nvim python engine 
-let g:python3_host_prog = '$HOME/miniconda3/bin/python'
+let g:python3_host_prog = '/usr/bin/python3'
 
 " repgrep
 set grepprg=rg\ --vimgrep\ --smart-case\ --hidden\ --follow
@@ -69,8 +69,8 @@ colorscheme nova
 
 " Using Autoformat for c++, cmakelist, python, json and shell scipt 
 map <leader>f :Autoformat<CR>
+let g:formatdef_buildifier='"buildifier"'
 "let g:autoformat_verbosemode=1
-
 "tab space
 set tabstop=4       " number of visual spaces per TAB
 set softtabstop=4   " number of spaces in tab when editing
