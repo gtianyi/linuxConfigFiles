@@ -196,6 +196,7 @@ alias sshaerials="ssh -p 31415 gu@aerials.cs.unh.edu"
 alias sshkraken="ssh -p 31415 gu@kraken.cs.unh.edu"
 alias sshcorona="ssh -p 31415 gu@corona.cs.unh.edu"
 alias sshpioneerkings="ssh tianyi@192.168.1.4"
+alias sshmotionaldesk="ssh tianyi.gu@10.16.6.15"
 
 #source /home/aifs1/gu/phd/pioneer-hallway/devel/setup.bash
 #source /opt/ros/kinetic/setup.bash
@@ -423,3 +424,6 @@ export FZF_DEFAULT_COMMAND='fdfind --type f'
 # To apply the command to CTRL-T as well
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND='fdfind --type d'
+
+# Motional AWS profile
+export AWS_PROFILE=shared-services
