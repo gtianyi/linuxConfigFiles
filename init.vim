@@ -69,8 +69,10 @@ colorscheme nova
 
 " Using Autoformat for c++, cmakelist, python, json and shell scipt 
 map <leader>f :Autoformat<CR>
-let g:formatdef_buildifier='"buildifier"'
-"let g:autoformat_verbosemode=1
+let g:formatdef_my_buildifier='"buildifier"'
+let g:formatters_bzl=['my_buildifier']
+"let g:autoformat_verbosemode=2
+
 "tab space
 set tabstop=4       " number of visual spaces per TAB
 set softtabstop=4   " number of spaces in tab when editing
@@ -103,6 +105,9 @@ vnoremap <leader>P "+P
 " enable spell check on html
 autocmd FileType html setlocal spell
 autocmd FileType html setlocal textwidth=74
+
+" call isort for python files
+autocmd BufWritePost *.py :CocCommand python.sortImports
 
 " Doxygen
 let g:DoxygenToolkit_briefTag_pre="One sentence summary of the function.  "
