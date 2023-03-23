@@ -414,6 +414,17 @@ function gdiffall() {
     git diff --color=always $mergebase HEAD $selectedFile | diff-so-fancy
 }
 
+function gdiffhash() {
+    fzfcommand="git diff --name-only --relative $1 HEAD \
+     | fzf --no-sort --reverse \
+     --preview 'git diff --color=always HEAD^ HEAD -- {+1} | diff-so-fancy' \
+     --bind=shift-down:preview-down --bind=shift-up:preview-up \
+     --preview-window=right:60%:wrap"
+    #eval $(echo $fzfcommand)
+    selectedFile="$(eval $fzfcommand)"
+    git diff --color=always $1 HEAD $selectedFile | diff-so-fancy
+}
+
 alias gcob='git branch | fzf | xargs git checkout'
 alias gpfwl='git push --force-with-lease'
 alias grebasemaster='git rebase -i origin/master'
