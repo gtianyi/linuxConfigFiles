@@ -133,6 +133,8 @@ alias o=openFileInBack
 
 PATH="$PATH:.:/home/aifs2/group/bin:/home/aifs2/group/bin/x86_64-linux_3.12.1:/home/aifs2/ruml/bin"
 export PATH
+export PATH=$PATH:/home/tianyi.gu/.local/bin
+export PATH=$PATH:/home/tianyi.gu/.local/lib/python3.8/site-packages
 
 # GO
 export GOPATH=~/gopath
@@ -232,6 +234,8 @@ alias cdssipp="cd ${HOME}/phd/research/workingPaper/situatedSIPP/situatedSIPPCod
 alias cdssippexp="cd ${HOME}/phd/research/workingPaper/situatedSIPP/situatedSIPPCodeBase/instances/Examples/small"
 alias cdav="cd ${HOME}/av-stack"
 alias cdpcd="cd ${HOME}/av-stack/av/planning_controls"
+alias cdavmap="cd ${HOME}/av-stack/lib/maps/src/lib/avmap"
+alias cdavmission="cd ${HOME}/av-stack/av/planning_controls/standalone-bin/AVMissionValidator"
 
 function t(){
 tmux a -t $1
@@ -310,9 +314,9 @@ bindkey -v
 #source /home/tianyi/catkin_ws/devel/setup.zsh
 #source /home/tianyi/ROSPlan/devel/setup.zsh
 
-if [[ -z "$TMUX" ]] && [ "$SSH_CONNECTION" != "" ]; then
-tmux attach-session -t def || tmux new-session -s def
-fi
+#if [[ -z "$TMUX" ]] && [ "$SSH_CONNECTION" != "" ]; then
+#tmux attach-session -t def || tmux new-session -s def
+#fi
 
 
 alias tname="tmux display-message -p '#S'"
