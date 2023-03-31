@@ -122,9 +122,9 @@ eog $1 &
 elif [[ ( ${1: -3} = ".st" ) || ( ${1: -4} = ".bak" ) ]]
 then
 less -N $1
-elif [[ ( ${1: -5} = ".json" ) ]]
-then
-jq -C . $1 | less -r
+#elif [[ ( ${1: -5} = ".json" ) ]]
+#then
+#jq -C . $1 | less -r
 else
 nvim $1 
 fi
