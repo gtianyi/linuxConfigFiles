@@ -442,3 +442,5 @@ export FZF_ALT_C_COMMAND='fdfind --type d'
 
 # Motional AWS profile
 export AWS_PROFILE=shared-services
+
+unsetopt nomatch
