@@ -205,9 +205,7 @@ alias sshmotionaldesk="ssh tianyi.gu@10.16.6.15"
 
 alias checkupdate="/usr/lib/update-notifier/apt-check --human-readable"
 
-
-
-alias vpnwhitecliff="sudo openvpn --config ~/.clientconfig.ovpn"
+alias vpnDana="sudo openvpn --config ~/.clientconfig.ovpn"
 
 #eval `dircolors /home/aifs1/gu/.dir_colors/dircolors`
 
@@ -444,3 +442,17 @@ export FZF_ALT_C_COMMAND='fdfind --type d'
 export AWS_PROFILE=shared-services
 
 unsetopt nomatch
+
+function gbranchdel() {
+    branchPrefix="$1*"
+    echo "Delete branches with prefix ${branchPrefix}; if you want force delete, please use gbranchDel"
+    git branch --list $branchPrefix | xargs -r git branch -d
+}
+
+function gbranchDel() {
+    branchPrefix="$1*"
+    echo "force delete branches with prefix ${branchPrefix}"
+    git branch --list $branchPrefix | xargs -r git branch -D
+}
+
+
