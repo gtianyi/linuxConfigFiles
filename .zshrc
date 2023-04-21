@@ -108,6 +108,22 @@ if [ -f /var/run/reboot-required ]; then
   echo 'reboot required'
 fi
 
+# set shell variable for nvim color scheme
+NVIMCOLOR="nova"
+
+# terminal color scheme switch
+# need to 
+# 1) set profile 1 and 2
+# 2) sudo apt install xdotool
+function terminaldark(){
+      xdotool key --clearmodifiers Shift+F10 r 2;
+      NVIMCOLOR="nova"
+}
+function terminallight(){
+      xdotool key --clearmodifiers Shift+F10 r 1;
+      NVIMCOLOR="onehalflight"
+}
+
 #more aliases
 alias csshai18="cssh ai1 ai2 ai3 ai4 ai5 ai6 ai8 ai9 ai10 ai11 ai12 ai13 ai14 ai15 ais1 ais2 ais3 ais4"
 alias csshai15="cssh ai1 ai2 ai3 ai4 ai5 ai6 ai8 ai9 ai10 ai11 ai12 ai13 ai14 ai15"
@@ -126,7 +142,7 @@ less -N $1
 #then
 #jq -C . $1 | less -r
 else
-nvim $1 
+nvim -c "colorscheme ${NVIMCOLOR}" $1 
 fi
 }
 alias o=openFileInBack
@@ -454,15 +470,3 @@ function gbranchDel() {
     echo "force delete branches with prefix ${branchPrefix}"
     git branch --list $branchPrefix | xargs -r git branch -D
 }
-
-# terminal color scheme switch
-# need to 
-# 1) set profile 1 and 2
-# 2) sudo apt install xdotool
-function terminaldark(){
-      xdotool key --clearmodifiers Shift+F10 r 2
-}
-function terminallight(){
-      xdotool key --clearmodifiers Shift+F10 r 1
-}
-
