@@ -455,4 +455,14 @@ function gbranchDel() {
     git branch --list $branchPrefix | xargs -r git branch -D
 }
 
+# terminal color scheme switch
+# need to 
+# 1) set profile 1 and 2
+# 2) sudo apt install xdotool
+function terminaldark(){
+      xdotool key --clearmodifiers Shift+F10 r 2
+}
+function terminallight(){
+      xdotool key --clearmodifiers Shift+F10 r 1
+}
 
