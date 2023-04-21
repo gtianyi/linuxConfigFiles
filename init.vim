@@ -25,6 +25,7 @@ Plug 'tmhedberg/SimpylFold'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'sheerun/vim-polyglot'
 Plug 'trevordmiller/nova-vim'
+Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'junegunn/fzf', 
 Plug 'junegunn/fzf.vim'
 Plug 'Chiel92/vim-autoformat' 
@@ -33,6 +34,7 @@ Plug 'vim-scripts/DoxygenToolkit.vim'
 call plug#end()            
 
 "indicate nvim python engine 
+"let g:python3_host_prog = '$HOME/miniconda3/bin/python'
 let g:python3_host_prog = '/usr/bin/python3'
 
 " repgrep
@@ -66,12 +68,11 @@ set smartcase
 " color
 syntax enable
 colorscheme nova
+"colorscheme onehalflight
 
 " Using Autoformat for c++, cmakelist, python, json and shell scipt 
 map <leader>f :Autoformat<CR>
-let g:formatdef_my_buildifier='"buildifier"'
-let g:formatters_bzl=['my_buildifier']
-"let g:autoformat_verbosemode=2
+"let g:autoformat_verbosemode=1
 
 "tab space
 set tabstop=4       " number of visual spaces per TAB
@@ -105,9 +106,6 @@ vnoremap <leader>P "+P
 " enable spell check on html
 autocmd FileType html setlocal spell
 autocmd FileType html setlocal textwidth=74
-
-" call isort for python files
-autocmd BufWritePost *.py :CocCommand python.sortImports
 
 " Doxygen
 let g:DoxygenToolkit_briefTag_pre="One sentence summary of the function.  "
