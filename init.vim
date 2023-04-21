@@ -67,11 +67,12 @@ set smartcase
 
 " color
 syntax enable
-colorscheme nova
-"colorscheme onehalflight
+"colorscheme nova
+colorscheme onehalflight
 
 " Using Autoformat for c++, cmakelist, python, json and shell scipt 
 map <leader>f :Autoformat<CR>
+let g:formatdef_buildifier="'buildifier'"
 "let g:autoformat_verbosemode=1
 
 "tab space
