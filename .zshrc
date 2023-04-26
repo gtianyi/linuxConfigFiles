@@ -250,6 +250,7 @@ alias cdav="cd ${HOME}/av-stack"
 alias cdpcd="cd ${HOME}/av-stack/av/planning_controls"
 alias cdavmap="cd ${HOME}/av-stack/lib/maps/src/lib/avmap"
 alias cdavmission="cd ${HOME}/av-stack/av/planning_controls/standalone-bin/AVMissionValidator"
+alias cdnuplan="cd ${HOME}/nuDeep/nuplan_devkit/nuplan"
 
 function t(){
 tmux a -t $1
