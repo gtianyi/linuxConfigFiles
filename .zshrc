@@ -146,6 +146,7 @@ nvim -c "colorscheme ${NVIMCOLOR}" $1
 fi
 }
 alias o=openFileInBack
+alias nlight="nvim -c 'colorscheme onehalflight'"
 
 PATH="$PATH:.:/home/aifs2/group/bin:/home/aifs2/group/bin/x86_64-linux_3.12.1:/home/aifs2/ruml/bin"
 export PATH
