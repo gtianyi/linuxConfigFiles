@@ -117,11 +117,13 @@ NVIMCOLOR="nova"
 # 2) sudo apt install xdotool
 function terminaldark(){
       xdotool key --clearmodifiers Shift+F10 r 2;
-      NVIMCOLOR="nova"
+      NVIMCOLOR="nova";
+      export BAT_THEME="OneHalfDark"
 }
 function terminallight(){
       xdotool key --clearmodifiers Shift+F10 r 1;
-      NVIMCOLOR="onehalflight"
+      NVIMCOLOR="onehalflight";
+      export BAT_THEME="OneHalfLight"
 }
 
 #more aliases
@@ -137,10 +139,10 @@ then
 eog $1 &
 elif [[ ( ${1: -3} = ".st" ) || ( ${1: -4} = ".bak" ) ]]
 then
-less -N $1 &
-elif [[ ( ${1: -3} = ".md" ) ]]
-then
-glow $1
+less -N $1 
+#elif [[ ( ${1: -3} = ".md" ) ]]
+#then
+#glow $1
 #elif [[ ( ${1: -5} = ".json" ) ]]
 #then
 #jq -C . $1 | less -r
