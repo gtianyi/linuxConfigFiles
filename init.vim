@@ -73,8 +73,6 @@ colorscheme nova
 " Using Autoformat for c++, cmakelist, python, json and shell scipt 
 map <leader>f :Autoformat<CR>
 let g:formatdef_buildifier="'buildifier'"
-let g:formatdef_my_html="'html-beautify -s 2 -w 80'"
-let g:formatters_html = ['my_html']
 "let g:autoformat_verbosemode=1
 
 "tab space
@@ -111,10 +109,10 @@ autocmd FileType html setlocal spell
 autocmd FileType html setlocal textwidth=74
 
 " Doxygen
-let g:DoxygenToolkit_briefTag_pre="One sentence summary of the function.  "
-let g:DoxygenToolkit_paramTag_pre="@param[in] "
-let g:DoxygenToolkit_returnTag="@returns   "
-let g:DoxygenToolkit_commentType="C++"
+let g:DoxygenToolkit_briefTag_pre="@brief One sentence summary of the function.  "
+let g:DoxygenToolkit_paramTag_pre="@param "
+let g:DoxygenToolkit_returnTag="@return "
+"let g:DoxygenToolkit_commentType="C++"
 let g:DoxygenToolkit_compactDoc="yes"
 let g:DoxygenToolkit_authorName="Tianyi Gu"
 let g:DoxygenToolkit_licenseTag="My own license"
