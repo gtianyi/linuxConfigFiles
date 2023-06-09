@@ -150,7 +150,12 @@ else
 nvim -c "colorscheme ${NVIMCOLOR}" $1 
 fi
 }
+
+function jsonNiceReader(){
+jq -C . $1 | less -r
+}
 alias o=openFileInBack
+alias j=jsonNiceReader
 alias nlight="nvim -c 'colorscheme onehalflight'"
 
 PATH="$PATH:.:/home/aifs2/group/bin:/home/aifs2/group/bin/x86_64-linux_3.12.1:/home/aifs2/ruml/bin"
@@ -255,7 +260,7 @@ alias cdssippexp="cd ${HOME}/phd/research/workingPaper/situatedSIPP/situatedSIPP
 alias cdav="cd ${HOME}/av-stack"
 alias cdpcd="cd ${HOME}/av-stack/av/planning_controls"
 alias cdavmap="cd ${HOME}/av-stack/lib/maps/src/lib/avmap"
-alias cdavmission="cd ${HOME}/av-stack/av/planning_controls/standalone-bin/AVMissionValidator"
+alias cdavmissionodd="cd ${HOME}/av-stack/av/planning_controls/standalone-bin/AVMissionValidator/ODDExtractor"
 alias cdnuplan="cd ${HOME}/nuDeep/nuplan_devkit/nuplan"
 alias cdargomp="cd ${HOME}/Documents/git/argobak/motionplanning"
 alias cdoutput="cd ${HOME}/av-stack/av/planning_controls/routeEngine/output"
