@@ -118,12 +118,12 @@ NVIMCOLOR="nova"
 function terminaldark(){
       xdotool key --clearmodifiers Shift+F10 r 2;
       NVIMCOLOR="nova";
-      export BAT_THEME="OneHalfDark"
+      export BAT_THEME="OneHalfDark";
 }
 function terminallight(){
       xdotool key --clearmodifiers Shift+F10 r 1;
-      NVIMCOLOR="onehalflight";
-      export BAT_THEME="OneHalfLight"
+      NVIMCOLOR="catppuccin-latte";
+      export BAT_THEME="OneHalfLight";
 }
 
 #more aliases

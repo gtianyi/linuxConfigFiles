@@ -25,7 +25,7 @@ Plug 'tmhedberg/SimpylFold'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'sheerun/vim-polyglot'
 Plug 'trevordmiller/nova-vim'
-Plug 'sonph/onehalf', {'rtp': 'vim/'}
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 Plug 'junegunn/fzf', 
 Plug 'junegunn/fzf.vim'
 Plug 'Chiel92/vim-autoformat' 
@@ -68,7 +68,7 @@ set smartcase
 " color
 syntax enable
 colorscheme nova
-"colorscheme onehalflight
+"colorscheme catppuccin-latte
 
 " Using Autoformat for c++, cmakelist, python, json and shell scipt 
 map <leader>f :Autoformat<CR>
