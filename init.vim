@@ -58,6 +58,20 @@ nnoremap <Leader>sc :BLines <C-R><C-W><cr>
 
 "fzf layout
 let g:fzf_layout = { 'down': '~90%' }
+let g:fzf_colors =                                                                         
+\ { 'fg':      ['fg', 'Normal'],                                                           
+  \ 'bg':      ['bg', 'Normal'],                                                           
+  \ 'hl':      ['fg', 'Comment'],                                                          
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],                             
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],                                       
+  \ 'hl+':     ['fg', 'Statement'],                                                        
+  \ 'info':    ['fg', 'PreProc'],                                                          
+  \ 'border':  ['fg', 'Ignore'],                                                           
+  \ 'prompt':  ['fg', 'Conditional'],                                                      
+  \ 'pointer': ['fg', 'Exception'],                                                        
+  \ 'marker':  ['fg', 'Keyword'],                                                          
+  \ 'spinner': ['fg', 'Label'],                                                            
+  \ 'header':  ['fg', 'Comment'] }
 
 "search setting
 set incsearch 
@@ -67,8 +81,8 @@ set smartcase
 
 " color
 syntax enable
-colorscheme nova
-"colorscheme catppuccin-latte
+"colorscheme nova
+colorscheme catppuccin-latte "have to be default on light color to make color switch work for fzf
 
 " Using Autoformat for c++, cmakelist, python, json and shell scipt 
 map <leader>f :Autoformat<CR>
