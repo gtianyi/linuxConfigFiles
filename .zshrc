@@ -119,11 +119,13 @@ function terminaldark(){
       xdotool key --clearmodifiers Shift+F10 r 2;
       NVIMCOLOR="nova";
       export BAT_THEME="OneHalfDark";
+      export GIT_EDITOR="nvim -c 'colorscheme nova'";
 }
 function terminallight(){
       xdotool key --clearmodifiers Shift+F10 r 1;
       NVIMCOLOR="catppuccin-latte";
       export BAT_THEME="OneHalfLight";
+      export GIT_EDITOR="nvim -c 'colorscheme catppuccin-latte'";
 }
 
 #more aliases
