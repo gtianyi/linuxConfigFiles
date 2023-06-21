@@ -156,7 +156,7 @@ jq -C . $1 | less -r
 }
 alias o=openFileInBack
 alias j=jsonNiceReader
-alias nlight="nvim -c 'colorscheme onehalflight'"
+alias ndark="nvim -c 'colorscheme nova'"
 
 PATH="$PATH:.:/home/aifs2/group/bin:/home/aifs2/group/bin/x86_64-linux_3.12.1:/home/aifs2/ruml/bin"
 export PATH
