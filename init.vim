@@ -113,10 +113,14 @@ nnoremap  <leader>y  "+y
 nnoremap  <leader>yy  "+yy
 
 " " Paste from clipboard
-nnoremap <leader>p "+p
-nnoremap <leader>P "+P
-vnoremap <leader>p "+p
-vnoremap <leader>P "+P
+"nnoremap <leader>p "+p
+"nnoremap <leader>P "+P
+"vnoremap <leader>p "+p
+"vnoremap <leader>P "+P
+
+" now it is possible to paste many times over selected text
+xnoremap <expr> p 'pgv"'.v:register.'y`>'
+xnoremap <expr> P 'Pgv"'.v:register.'y`>'
 
 " enable spell check on html
 autocmd FileType html setlocal spell
