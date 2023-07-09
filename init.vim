@@ -122,6 +122,12 @@ nnoremap  <leader>yy  "+yy
 xnoremap <expr> p 'pgv"'.v:register.'y`>'
 xnoremap <expr> P 'Pgv"'.v:register.'y`>'
 
+" use d for delete without copy, x for cut
+nnoremap d "_d
+vnoremap d "_d
+nnoremap D "_D
+vnoremap D "_D
+
 " enable spell check on html
 autocmd FileType html setlocal spell
 autocmd FileType html setlocal textwidth=74
