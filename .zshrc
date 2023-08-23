@@ -328,9 +328,14 @@ cd -
 
 alias rm='echo -e "rm is disabled, use myrm or /bin/rm instead.\nuse cleartrash to clear the trash folder"'
 
+# myrm for linux
 function myrm(){
 mv --backup=t $@ ~/.trash
 }
+# myrm for mac
+#function myrm(){
+#mv $@ ~/.trash
+#}
 
 alias cleartrash="/bin/rm -rf ~/.trash/*"
 
