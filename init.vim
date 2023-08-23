@@ -19,8 +19,6 @@ Plug 'lervag/vimtex'
 Plug 'tpope/vim-abolish' "subtitute preserve case
 Plug 'scrooloose/nerdcommenter' 
 Plug 'mattn/emmet-vim' 
-Plug 'sbdchd/neoformat'
-Plug 'neomake/neomake'
 Plug 'tmhedberg/SimpylFold'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'sheerun/vim-polyglot'
@@ -87,6 +85,7 @@ colorscheme catppuccin-latte "have to be default on light color to make color sw
 " Using Autoformat for c++, cmakelist, python, json and shell scipt 
 map <leader>f :Autoformat<CR>
 let g:formatdef_buildifier="'buildifier'"
+let g:formatdef_htmlbeautify="'html-beautify -s 2 -w 80'"
 "let g:autoformat_verbosemode=1
 
 "tab space
