@@ -7,14 +7,14 @@
 [alias]
 lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(black)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold cyan)%d%C(reset)' --all
 lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold cyan)%d%C(reset)%n''          %C(black)%s%C(reset) %C(dim black)- %an%C(reset)' --all
-lgblack = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold cyan)%d%C(reset)' --all
+lgblack = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%cr)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold cyan)%d%C(reset)' --all
 #lg = !"git lgblack"
-lgblack = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold cyan)%d%C(reset)' --all
+lgblack = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%cr)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold cyan)%d%C(reset)' --all
 dog = log --all --decorate --oneline --graph
-lgblackvsdev = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold cyan)%d%C(reset)' HEAD origin/master
+lgblackvsdev = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%cr)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold cyan)%d%C(reset)' HEAD origin/master
 lg = !"git lgblackvsdev"
 sstat = !"git diff --shortstat $(git merge-base HEAD origin/master) HEAD"
-sstatcodeonly = !"git diff --shortstat $(git merge-base HEAD origin/master) HEAD -- ':!*.json'"
+sstatcodeonly = !"git diff --shortstat $(git merge-base HEAD origin/master) HEAD -- ':!*.json' ':!*.csv' ':!*.ipynb' ':!*.txt'"
 sstatprev = !"git diff --shortstat HEAD^ HEAD"
 
 [filter "lfs"]
