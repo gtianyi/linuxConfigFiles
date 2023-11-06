@@ -492,3 +492,6 @@ function gbranchDel() {
     echo "force delete branches with prefix ${branchPrefix}"
     git branch --list $branchPrefix | xargs -r git branch -D
 }
+
+# for bazel complettion
+fpath+=(/usr/share/zsh/vendor-completions/_bazel)
