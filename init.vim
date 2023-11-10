@@ -84,7 +84,6 @@ colorscheme catppuccin-latte "have to be default on light color to make color sw
 
 " Using Autoformat for c++, cmakelist, python, json and shell scipt 
 map <leader>f :Autoformat<CR>
-let g:formatdef_buildifier="'buildifier'"
 let g:formatdef_htmlbeautify="'html-beautify -s 2 -w 80'"
 "let g:autoformat_verbosemode=1
 
@@ -121,9 +120,11 @@ nnoremap  <leader>yy  "+yy
 xnoremap <expr> p 'pgv"'.v:register.'y`>'
 xnoremap <expr> P 'Pgv"'.v:register.'y`>'
 
-" use d for delete without copy, x for cut
-nnoremap d "_d
-vnoremap d "_d
+" use <leader>d for delete without copy, d and x for cut
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+
+" use D for delete to the end without copy
 nnoremap D "_D
 vnoremap D "_D
 
@@ -132,7 +133,7 @@ autocmd FileType html setlocal spell
 autocmd FileType html setlocal textwidth=74
 
 " Doxygen
-let g:DoxygenToolkit_briefTag_pre="@brief One sentence summary of the function.  "
+let g:DoxygenToolkit_briefTag_pre="One sentence summary of the function.  "
 let g:DoxygenToolkit_paramTag_pre="@param "
 let g:DoxygenToolkit_returnTag="@return "
 let g:DoxygenToolkit_commentType="C++"
