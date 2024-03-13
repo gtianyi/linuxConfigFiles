@@ -227,7 +227,9 @@ alias sshaerials="ssh -p 31415 gu@aerials.cs.unh.edu"
 alias sshkraken="ssh -p 31415 gu@kraken.cs.unh.edu"
 alias sshcorona="ssh -p 31415 gu@corona.cs.unh.edu"
 alias sshpioneerkings="ssh tianyi@192.168.1.4"
-alias sshmotionaldesk="ssh tianyi.gu@10.16.6.15"
+alias sshmotionaldesk="ssh tianyi.gu@10.16.6.48"
+alias sshteamlaptop="ssh sysint@192.168.78.175"
+alias sshmac22="ssh gtianyi@192.168.78.119"
 
 #source /home/aifs1/gu/phd/pioneer-hallway/devel/setup.bash
 #source /opt/ros/kinetic/setup.bash
@@ -330,13 +332,11 @@ cd -
 
 alias rm='echo -e "rm is disabled, use myrm or /bin/rm instead.\nuse cleartrash to clear the trash folder"'
 
-# myrm for linux
 function myrm(){
-mv --backup=t $@ ~/.trash
+mv $@ ~/.trash
 }
-# myrm for mac
 #function myrm(){
-#mv $@ ~/.trash
+#mv --backup=t $@ ~/.trash
 #}
 
 alias cleartrash="/bin/rm -rf ~/.trash/*"
@@ -472,11 +472,13 @@ alias gpfwl='git push --force-with-lease'
 alias grebasemaster='git rebase -i origin/master'
 
 # Setting fd as the default source for fzf
-export FZF_DEFAULT_COMMAND='fdfind --type f'
+# export FZF_DEFAULT_COMMAND='fdfind --type f'
+export FZF_DEFAULT_COMMAND='fd --type f'
 
 # To apply the command to CTRL-T as well
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND='fdfind --type d'
+# export FZF_ALT_C_COMMAND='fdfind --type d'
+export FZF_ALT_C_COMMAND='fd --type d'
 
 # Motional AWS profile
 export AWS_PROFILE=shared-services
