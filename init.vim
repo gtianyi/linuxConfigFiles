@@ -22,7 +22,7 @@ Plug 'mattn/emmet-vim'
 Plug 'tmhedberg/SimpylFold'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'sheerun/vim-polyglot'
-Plug 'trevordmiller/nova-vim'
+Plug 'iammerrick/nova-vim'
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 Plug 'junegunn/fzf', 
 Plug 'junegunn/fzf.vim'
