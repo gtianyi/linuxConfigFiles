@@ -1,0 +1,135 @@
+CompileFlags:
+  Remove:
+    [
+      -Wmismatched-tags,
+      -fcoroutines-ts,
+      -Wno-array-bounds,
+      -Warray-bounds=0,
+      -Warray-bounds=1,
+      -Warray-bounds=2,
+      -Wduplicated-branches,
+      -Wduplicated-cond,
+      -Wno-format-overflow,
+      -Wformat-overflow=0,
+      -Wformat-overflow=1,
+      -Wformat-overflow=2,
+      -Wformat-signedness,
+      -Wno-format-truncation,
+      -Wformat-truncation=0,
+      -Wformat-truncation=1,
+      -Wformat-truncation=2,
+      -Wno-implicit-fallthrough,
+      -Wimplicit-fallthrough=0,
+      -Wimplicit-fallthrough=1,
+      -Wimplicit-fallthrough=2,
+      -Wimplicit-fallthrough=3,
+      -Wimplicit-fallthrough=4,
+      -Wimplicit-fallthrough=5,
+      -Wliteral-suffix,
+      -Wlogical-op,
+      -Wno-stack-usage,
+      -Wstack-usage=4096,
+      -Wstack-usage=8192,
+      -Wstack-usage=16384,
+      -Werror=stack-usage=4096,
+      -Werror=stack-usage=8192,
+      -Werror=stack-usage=16384,
+      -Wstringop-overflow=32768,
+      -Wstringop-overflow=1048576,
+      -Wno-stringop-overflow,
+      -Wstringop-overflow=0,
+      -Wstringop-overflow=1,
+      -Wstringop-overflow=2,
+      -Wstringop-overflow=3,
+      -Wstringop-overflow=4,
+      -Wtrampolines,
+    ]
+  Add: [-ferror-limit=0, -Wconversion, -Wpadded, -Werror]
+  # Compiler: "external/x86_64-linux-av-gcc-10.2.0/bin/av-g++"
+Hover:
+  ShowAKA: true
+InlayHints:
+  Designators: true
+  Enabled: true
+  ParameterNames: true
+  DeducedTypes: true
+  BlockEnd: true
+  LambdaCaptures: true
+  DefaultArguments: true
+  TypeNameLimit: 1000
+Index:
+  StandardLibrary: Yes
+Style:
+  FullyQualifiedNamespaces:
+    - "std"
+Diagnostics:
+  # Note: this is av-stack specific, we get some weird xmm_intrinsic warnings otherwise
+  Suppress: ["conflicting_types", "builtin_definition", "typename_missing", "template_param_default_arg_redefinition"]
+  ClangTidy:
+    FastCheckFilter: None
+    CheckOptions:
+      readability-identifier-naming.ClassCase: CamelCase
+      readability-identifier-naming.FunctionCase: camelBack
+      readability-identifier-naming.VariableCase: camelBack
+      readability-identifier-naming.ParameterCase: camelBack
+      readability-identifier-naming.MemberCase: camelBack
+      readability-identifier-naming.PrivateMemberSuffix: _
+      readability-identifier-naming.ProtectedMemberSuffix: _
+      readability-identifier-naming.EnumCase: CamelCase
+      readability-identifier-naming.EnumConstantCase: camelBack
+      readability-identifier-naming.MacroDefinitionCase: UPPER_CASE
+      readability-identifier-naming.NamespaceCase: lower_case
+      readability-identifier-naming.TemplateParameterCase: CamelCase
+      readability-identifier-naming.ValueTemplateParameterCase: camelBack
+      cppcoreguidelines-avoid-do-while.IgnoreMacros: true
+      cppcoreguidelines-narrowing-conversions.PedanticMode: true
+      google-runtime-int.TypeSuffix: "_t"
+      misc-const-correctness.WarnPointersAsValues: true
+      misc-const-correctness.TransformPointersAsValues: true
+      modernize-deprecated-headers.CheckHeaderFile: true
+      modernize-type-traits.IgnoreMacros: true
+      modernize-use-emplace.SmartPointers: "av::nn_unique_ptr, av::nn_shared_ptr"
+      modernize-use-equals-default.IgnoreMacros: true
+      modernize-use-equals-delete.IgnoreMacros: true
+      modernize-use-std-print.StrictMode: true
+      modernize-use-std-print.ReplacementPrintFunction: "fmt::print"
+      modernize-use-std-print.ReplacementPrintlnFunction: "fmt::println"
+      modernize-use-using.IgnoreMacros: true
+      readability-inconsistent-declaration-parameter-name.Strict: true
+      readability-operators-representation.BinaryOperators: "&&;&=;&;|;~;!;!=;||;|=;^;^="
+      readability-redundant-access-specifiers.CheckFirstDeclaration: true
+      portability-simd-intrinsics.Suggest: true
+      portability-simd-intrinsics.Std: "std::experimental"
+      readability-identifier-length.IgnoredVariableNames: "^[_]$"
+    Add:
+      [
+        cppcoreguidelines*,
+        bugprone*,
+        cert*,
+        modernize*,
+        performance*,
+        portability*,
+        readability*,
+        misc*,
+        misc-const-correctness,
+        google-default-arguments,
+        google-explicit-constructor,
+        google-global-names-in-headers,
+        google-readability-avoid-underscore-in-googletest-name,
+        google-readability-casting,
+        google-runtime-int,
+        google-upgrade-googletest-case,
+        # altera-struct-pack-align,
+        fuchsia-multiple-inheritance,
+        fuchsia-statically-constructed-objects,
+        hicpp-exception-baseclass,
+        hicpp-multiway-paths-covered,
+        hicpp-signed-bitwise,
+      ]
+    Remove:
+      [
+        readability-magic-numbers,
+        cppcoreguidelines-avoid-magic-numbers,
+      ]
+  UnusedIncludes: Strict
+  MissingIncludes: Strict
