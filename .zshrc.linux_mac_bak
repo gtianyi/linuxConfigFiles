@@ -149,7 +149,7 @@ less -N $1
 #then
 #jq -C . $1 | less -r
 else
-vim $1 
+nvim -c "colorscheme ${NVIMCOLOR}" $1 
 fi
 }
 
@@ -269,8 +269,6 @@ alias cdoutput="cd ${HOME}/av-stack/av/planning_controls/routeEngine/output"
 alias cdodd="cd ${HOME}/av-stack/av/planning_controls/routeEngine/ODDTools"
 alias cdremodule="cd ${HOME}/av-stack/av/planning_controls/routeEngine/modules"
 alias cdss="cd ${HOME}/av-stack/av/planning_controls/lib/StreetSegmentGraphSearch"
-alias cdrr="cd /c/Source_git/Routing"
-alias cddl="cd /c/Users/tgu/Downloads"
 
 function t(){
 tmux a -t $1
@@ -341,7 +339,7 @@ mv --backup=t $@ ~/.trash
 #mv $@ ~/.trash
 #}
 
-alias cleartrash="/c/Program\ Files/Git/usr/bin/rm.exe -rf ~/.trash/*"
+alias cleartrash="/bin/rm -rf ~/.trash/*"
 
 # open the file manager from terminal
 function f(){
