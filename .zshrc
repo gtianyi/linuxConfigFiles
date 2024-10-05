@@ -149,7 +149,7 @@ less -N $1
 #then
 #jq -C . $1 | less -r
 else
-vim $1 
+winpty nvim $1 
 fi
 }
 
@@ -271,6 +271,7 @@ alias cdremodule="cd ${HOME}/av-stack/av/planning_controls/routeEngine/modules"
 alias cdss="cd ${HOME}/av-stack/av/planning_controls/lib/StreetSegmentGraphSearch"
 alias cdrr="cd /c/Source_git/Routing"
 alias cddl="cd /c/Users/tgu/Downloads"
+alias cdex="cd /c/Source_git/Executive/Source/Symbotic.Routing.TSRRouter/Executive"
 
 function t(){
 tmux a -t $1
@@ -471,7 +472,8 @@ function gdiffhash() {
 
 alias gcob='git branch | fzf | xargs git checkout'
 alias gpfwl='git push --force-with-lease'
-alias grebasemaster='git rebase -i origin/master'
+alias grebasedev='git rebase -i origin/develop'
+alias grebaseexe='git rebase -i origin/executive_profiling'
 
 # Setting fd as the default source for fzf
 export FZF_DEFAULT_COMMAND='fdfind --type f'

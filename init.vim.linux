@@ -13,27 +13,27 @@ set noswapfile
 
 " all plugin listed here would be installed automatically
 call plug#begin()
-"Plug 'neoclide/coc.nvim', {'branch': 'release'} 
+Plug 'neoclide/coc.nvim', {'branch': 'release'} 
 Plug 'jiangmiao/auto-pairs'
-"Plug 'lervag/vimtex'
+Plug 'lervag/vimtex'
 Plug 'tpope/vim-abolish' "subtitute preserve case
 Plug 'scrooloose/nerdcommenter' 
-"Plug 'mattn/emmet-vim' 
+Plug 'mattn/emmet-vim' 
 Plug 'tmhedberg/SimpylFold'
 Plug 'terryma/vim-multiple-cursors'
-"Plug 'sheerun/vim-polyglot'
-Plug 'iammerrick/nova-vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'trevordmiller/nova-vim'
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 Plug 'junegunn/fzf', 
 Plug 'junegunn/fzf.vim'
 Plug 'Chiel92/vim-autoformat' 
 Plug 'vim-airline/vim-airline' 
-"Plug 'vim-scripts/DoxygenToolkit.vim' 
+Plug 'vim-scripts/DoxygenToolkit.vim' 
 call plug#end()            
 
 "indicate nvim python engine 
 "let g:python3_host_prog = '$HOME/miniconda3/bin/python'
-"let g:python3_host_prog = '/usr/bin/python3'
+let g:python3_host_prog = '/usr/bin/python3'
 
 " repgrep
 set grepprg=rg\ --vimgrep\ --smart-case\ --hidden\ --follow
@@ -80,7 +80,7 @@ set smartcase
 " color
 syntax enable
 "colorscheme nova
-"colorscheme catppuccin-latte "have to be default on light color to make color switch work for fzf
+colorscheme catppuccin-latte "have to be default on light color to make color switch work for fzf
 
 " Using Autoformat for c++, cmakelist, python, json and shell scipt 
 map <leader>f :Autoformat<CR>
@@ -142,4 +142,4 @@ let g:DoxygenToolkit_authorName="Tianyi Gu"
 let g:DoxygenToolkit_licenseTag="My own license"
 map <Leader>dg :Dox<CR>
 
-"source $HOME/.config/nvim/coc.vim
+source $HOME/.config/nvim/coc.vim
