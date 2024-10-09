@@ -272,6 +272,8 @@ alias cdss="cd ${HOME}/av-stack/av/planning_controls/lib/StreetSegmentGraphSearc
 alias cdrr="cd /c/Source_git/Routing"
 alias cddl="cd /c/Users/tgu/Downloads"
 alias cdex="cd /c/Source_git/Executive/Source/Symbotic.Routing.TSRRouter/Executive"
+alias cddownload="cd /c/Users/tgu/Downloads"
+alias cdscreenshots="cd /c/Users/tgu/OneDrive\ -\ Symbotic/Pictures/Screenshots"
 
 function t(){
 tmux a -t $1
