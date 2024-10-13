@@ -503,3 +503,9 @@ function gbranchDel() {
 
 # for bazel complettion
 fpath+=(/usr/share/zsh/vendor-completions/_bazel)
+
+##########Symbotic##########
+# backup logs to large disk
+function baklog(){
+mv --backup=t /c/logs /d/logs_bak/
+}
