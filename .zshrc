@@ -407,7 +407,9 @@ function vfzfp(){
 }
 
 function findhere(){
-rg -i "$1" -l | fzfp
+rg --line-number --with-filename . --color=always --field-match-separator ' '\
+      | fzf --ansi --preview "bat --color=always {1} --highlight-line {2}" \
+        --preview-window ~8,+{2}-5
 }
 
 # >>> conda initialize >>>
@@ -433,7 +435,7 @@ function gdiff() {
          | sed s/^...// \
          | fzf --no-sort --reverse \
          --preview 'git diff --color=always {+1} | diff-so-fancy' \
-         --bind=shift-down:preview-down --bind=shift-up:preview-up \
+         --bind=down:preview-down --bind=up:preview-up \
          --preview-window=right:60%:wrap)"
     git diff --color=always $selectedFile | diff-so-fancy
 }
@@ -442,7 +444,7 @@ function gdiffprev() {
     fzfcommand="git diff --name-only --relative HEAD^ HEAD \
      | fzf --no-sort --reverse \
      --preview 'git diff --color=always HEAD^ HEAD -- {+1} | diff-so-fancy' \
-     --bind=shift-down:preview-down --bind=shift-up:preview-up \
+     --bind=down:preview-down --bind=up:preview-up \
      --preview-window=right:60%:wrap"
     #eval $(echo $fzfcommand)
     selectedFile="$(eval $fzfcommand)"
@@ -450,11 +452,11 @@ function gdiffprev() {
 }
 
 function gdiffall() {
-    mergebase="$(git merge-base HEAD origin/master)"
+    mergebase="$(git merge-base HEAD origin/executive_profiling)"
     fzfcommand="git diff --name-only --relative $mergebase HEAD \
      | fzf --no-sort --reverse \
      --preview 'git diff --color=always $mergebase HEAD -- {+1} | diff-so-fancy' \
-     --bind=shift-down:preview-down --bind=shift-up:preview-up \
+     --bind=down:preview-down --bind=up:preview-up \
      --preview-window=right:60%:wrap"
     #eval $(echo $fzfcommand)
     selectedFile="$(eval $fzfcommand)"
@@ -465,7 +467,7 @@ function gdiffhash() {
     fzfcommand="git diff --name-only --relative $1 HEAD \
      | fzf --no-sort --reverse \
      --preview 'git diff --color=always HEAD^ HEAD -- {+1} | diff-so-fancy' \
-     --bind=shift-down:preview-down --bind=shift-up:preview-up \
+     --bind=down:preview-down --bind=up:preview-up \
      --preview-window=right:60%:wrap"
     #eval $(echo $fzfcommand)
     selectedFile="$(eval $fzfcommand)"
