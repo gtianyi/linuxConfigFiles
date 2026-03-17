@@ -269,11 +269,11 @@ alias cdoutput="cd ${HOME}/av-stack/av/planning_controls/routeEngine/output"
 alias cdodd="cd ${HOME}/av-stack/av/planning_controls/routeEngine/ODDTools"
 alias cdremodule="cd ${HOME}/av-stack/av/planning_controls/routeEngine/modules"
 alias cdss="cd ${HOME}/av-stack/av/planning_controls/lib/StreetSegmentGraphSearch"
-alias cdrr="cd /c/Source_git/Routing"
-alias cddl="cd /c/Users/tgu/Downloads"
-alias cdex="cd /c/Source_git/Executive/Source/Symbotic.Routing.TSRRouter/Executive"
-alias cddownload="cd /c/Users/tgu/Downloads"
+alias cddl="cd /d/myDownloads"
 alias cdscreenshots="cd /c/Users/tgu/OneDrive\ -\ Symbotic/Pictures/Screenshots"
+alias cdauto="cd /c/Source/tests/routing-automation-tests/Symbotic.RouterAutomationTests.PredefinedTests/Tests"
+alias cdrsim="cd /c/Source/rsim"
+alias cdrr="cd /c/Source/routing"
 
 function t(){
 tmux a -t $1
@@ -511,3 +511,21 @@ fpath+=(/usr/share/zsh/vendor-completions/_bazel)
 function baklog(){
 mv --backup=t /c/logs /d/logs_bak/
 }
+
+function rsimbrk(){
+    setx TestDataBTC "C:\map_env\BRKConnected"
+}
+
+function rsimnbf6(){
+    setx TestDataBTC "C:\map_env\NBF6"
+}
+
+function rsimnbfc(){
+    setx TestDataBTC "C:\map_env\NBF"
+}
+
+function rsimitc(){
+    setx TestDataBTC "C:\map_env\ITC_shiftedtapelines_bpless"
+}
+
+alias gcoapp="git checkout Tests/Symbotic.Routing.RoutingSimulator/appsettings.json"
