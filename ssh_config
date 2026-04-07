@@ -1,0 +1,7 @@
+Host github.com-sym
+    Hostname github.com
+    IdentityFile=/c/linuxHome/.ssh/id_rsa
+
+Host github.com-gtianyi
+    Hostname github.com
+    IdentityFile=/c/linuxHome/.ssh/id_rsa_gtianyi
